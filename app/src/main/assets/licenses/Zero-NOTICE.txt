@@ -1,0 +1,8 @@
+Zero
+Copyright 2026 taoyundamy-oss and Zero contributors
+
+Original project code is provided under Apache License 2.0.
+Third-party dependencies and optional models retain their own licenses.
+See THIRD_PARTY_NOTICES.md and third-party-licenses/.
+
+The Chinese WordPiece vocabulary used in tokenizer tests matches both BAAI/bge-small-zh-v1.5 and google-bert/bert-base-chinese. See THIRD_PARTY_NOTICES.md and the retained upstream licenses. No model weights are distributed.

@@ -45,6 +45,9 @@ def inspect(apk, analyzer, aapt):
     manifest = xml("manifest", "print", str(apk))
     with zipfile.ZipFile(apk) as bundle:
         paths = bundle.namelist()
+        required_notices = {"assets/licenses/" + name for name in ["Zero-LICENSE.txt", "Zero-NOTICE.txt", "THIRD_PARTY_NOTICES.md", "sherpa-onnx-LICENSE.txt", "onnxruntime-LICENSE.txt"]}
+        if not required_notices.issubset(paths):
+            raise ValueError("Missing distribution license or attribution")
         abis = {name.split("/")[1] for name in paths if name.startswith("lib/") and name.endswith(".so")}
         if abis != {"arm64-v8a", "x86_64"}:
             raise ValueError("Unexpected native ABI set")
