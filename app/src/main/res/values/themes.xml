@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ZeroV2" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- S8.3（图纸 D2 · 裁定 13）：启动画面——深空底 + 零语 glyph（自然时长，无人工延迟）；
+         词标文字不支持于 splash API 图标位（偏差已记），后续版本如需可作 glyph 内嵌 -->
+    <style name="Theme.ZeroV2.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/zero_deep_space</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_monochrome</item>
+        <item name="postSplashScreenTheme">@style/Theme.ZeroV2</item>
+    </style>
+</resources>

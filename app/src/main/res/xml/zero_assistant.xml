@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- KB3.1a：VoiceInteractionService → SessionService 关联（系统标准机制；
+     Manifest 中 ZeroAssistantService 的 meta-data android.voice_interaction 指向本文件） -->
+<voice-interaction-service
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:sessionService="com.zero.v2.app.assistant.ZeroAssistantSessionService" />

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- S3.2/SR3：精确闹钟（targetSdk 31+ 不声明则 canScheduleExactAlarms 恒 false，
+         setExact 静默降级 setWindow——提醒不准点根因之一） -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <!-- v2.5: NotificationModule / UsageStatsModule 真实实现 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- v6.4: Live 会话（D38 会话制——开启才申请，结束全释放） -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- MU2.1（音乐轨 SR10）：媒体播放前台服务（targetSdk 34+ 必需，mediaPlayback 类型） -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+
+    <!-- Step 9.2 (D58): 位置服务 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Step 9.3 (D58): 日历 -->
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <!-- Step 9.4 (D58): 系统闹钟（安装即有，无需运行时弹窗） -->
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
+    <!-- M1.3（模块化轨）：Termux RUN_COMMAND——Termux 定义的危险级自定义权限，
+         授予路径 应用信息→权限→其他权限→Run in Termux（另有 Termux 侧 allow-external-apps 前置） -->
+    <uses-permission android:name="com.termux.permission.RUN_COMMAND" />
+    <!-- M2.4（B-II-11）：替 Termux 请求电池优化豁免（权限中心直跳弹系统确认框） -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <!-- v6.9: Android 11+ 包可见性——无此声明 getInstalledApplications 只见系统应用，
+         屏幕阅读白名单选择器因此全是系统 App（实测 P1 根因）。声明可见所有
+         可启动应用 = 白名单语义精确匹配 -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <!-- M1.1（模块化轨）：Shizuku 特权操作层包可见性 -->
+        <provider android:authorities="rikka.shizuku.provider" />
+        <!-- M1.3（模块化轨）：Termux RUN_COMMAND targetSdk≥30 必需，否则跨应用 startService 不可见 -->
+        <package android:name="com.termux" />
+        <package android:name="com.termux.boot" />
+    </queries>
+
+    <!-- S8.1-fix（L3 实测触发）：application label 原硬编码 "ZeroV2" 压过 @string/app_name——
+         桌面图标名不随 S8.1 改名生效；改引用资源（单一来源） -->
+    <application
+        android:name=".ZeroApplication"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:allowBackup="true"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:theme="@style/Theme.ZeroV2">
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data android:name="androidx.work.WorkManagerInitializer" tools:node="remove" />
+        </provider>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ZeroV2.Splash"
+            android:windowSoftInputMode="adjustResize"
+            android:enableOnBackInvokedCallback="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 屏幕共享授权页（6.6 R1/R6：MediaProjection 系统弹窗必经透明 Activity） -->
+        <activity
+            android:name=".background.ProjectionConsentActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- Notification Listener Service (Phase 11) -->
+        <service
+            android:name=".background.NotificationListener"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <!-- Optional screen/gesture capabilities; runtime startup no longer depends on accessibility. -->
+        <service
+            android:name=".background.AgentRuntimeService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/agent_runtime_service_config" />
+        </service>
+
+        <service android:name=".background.AutonomousKeepAliveService"
+            android:exported="false" android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="User-enabled autonomous assistant with adaptive presence backoff and scheduled work; mode OFF stops this service. The existing runtime remains the single heartbeat owner." />
+        </service>
+
+        <!-- v6.4: Live 会话前台服务（R1 双类型 FGS：麦克风 + 屏幕投影） -->
+        <service
+            android:name=".background.LiveSessionService"
+            android:exported="false"
+            android:foregroundServiceType="microphone|mediaProjection" />
+
+        <!-- MU2.1（音乐轨 MD2/MD17）：音乐前台宿主——状态在 MusicModule 单例，服务只管前台生命周期 -->
+        <service
+            android:name=".background.MusicService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <!-- KB3.1a（知识库轨 §十八/裁-5）：Assistant 壳——系统默认数字助手通道。
+             BIND_VOICE_INTERACTION 为组件属性（约束绑定方=系统），app 零特权（KD15）。
+             sessionService 关联经 meta-data → @xml/zero_assistant -->
+        <service
+            android:name=".assistant.ZeroAssistantService"
+            android:label="Zero"
+            android:permission="android.permission.BIND_VOICE_INTERACTION"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.voice.VoiceInteractionService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.voice_interaction"
+                android:resource="@xml/zero_assistant" />
+        </service>
+        <service
+            android:name=".assistant.ZeroAssistantSessionService"
+            android:label="Zero"
+            android:permission="android.permission.BIND_VOICE_INTERACTION"
+            android:exported="true" />
+
+        <!-- KB3.1b-fix2（L3 实测）：ASSIST activity 路——"数字助手"候选列表的第二来源
+             （与 VoiceInteractionService 并集；ChatGPT 配方两路兼备）。无 UI 中转 -->
+        <activity
+            android:name=".assistant.AssistHandlerActivity"
+            android:label="Zero"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.ASSIST" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.ASSIST" />
+            </intent-filter>
+        </activity>
+
+        <!-- KB3.3（知识库轨 §十八 · KD12/KD15）：唤醒词常驻监听前台服务（亮屏有效）；
+             "仅充电"档拉起通道（POWER_CONNECTED 不在 FGS 后台豁免清单——receiver
+             try 启动失败留痕等待合法窗口，不做保活） -->
+        <service
+            android:name=".assistant.HotwordService"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+        <receiver
+            android:name=".assistant.HotwordPowerReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Boot Receiver -->
+        <receiver
+            android:name=".background.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- M1.1（模块化轨）：ShizukuProvider——接收 Shizuku server 推送的 binder
+             （官方声明要求；INTERACT_ACROSS_USERS_FULL 保护防普通应用访问） -->
+        <provider
+            android:name="rikka.shizuku.ShizukuProvider"
+            android:authorities="${applicationId}.shizuku"
+            android:multiprocess="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+
+        <provider
+            android:name="com.zero.v2.app.data.AttachmentFileProvider"
+            android:authorities="${applicationId}.attachments"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/attachment_paths" />
+        </provider>
+    </application>
+</manifest>

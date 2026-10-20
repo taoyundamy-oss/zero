@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  U1（视觉规范）：Zero 启动图标前景——对齐 docs/refined/assets/zero-ui-v2/ic_zero_foreground.xml
+  设计源（环 + 右上偏置实心方块 motif）。108dp viewport，几何全部 ≤ 安全区（中心 66dp 圆）。
+  adaptive 三套=前景/背景/monochrome（见 mipmap-anydpi-v26/ic_launcher.xml）。
+  替代旧 S8.2「零语」气泡尾 motif——本轮采用已生成 Zero 标识（总纲§7）。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- "0" 环（右上开口）：stroke #FAFAF8 暖白，圆帽 -->
+    <path
+        android:pathData="M63.3,34.1 A22,22 0,1 0,73.1 43"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FAFAF8"
+        android:strokeWidth="8"
+        android:strokeLineCap="round" />
+
+    <!-- 右上偏置实心方块（环形开口处的偏置 mark） -->
+    <path
+        android:pathData="M69.5,31 L74.5,31 Q76,31 76,32.5 L76,37.5 Q76,39 74.5,39 L69.5,39 Q68,39 68,37.5 L68,32.5 Q68,31 69.5,31 Z"
+        android:fillColor="#FAFAF8" />
+</vector>

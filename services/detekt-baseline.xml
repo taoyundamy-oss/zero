@@ -1,0 +1,773 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ComplexCondition:NotificationModule.kt$NotificationModule$head != null &amp;&amp; head.event.packageName == event.packageName &amp;&amp; head.event.title == event.title &amp;&amp; head.event.content == event.content &amp;&amp; now - head.receivedAt &lt; DEDUP_WINDOW_MS</ID>
+    <ID>ComplexCondition:SpeechSynthesisModule.kt$SpeechSynthesisModule$head + 64 &lt; farLastHead || (farLastHead == 0L &amp;&amp; head == 0L &amp;&amp; farQueue.isNotEmpty())</ID>
+    <ID>ComplexCondition:SystemEventModule.kt$SystemEventModule$newTimeStr == null &amp;&amp; newRemark == null &amp;&amp; newRecurring == null &amp;&amp; newIntervalSec == null</ID>
+    <ID>ComplexCondition:TriggerHub.kt$TriggerHub$cfg.batteryFullEnabled &amp;&amp; isFull &amp;&amp; wasCharging &amp;&amp; !isCharging</ID>
+    <ID>ComplexCondition:TriggerHub.kt$TriggerHub$cfg.nightScreenEnabled &amp;&amp; !nightScreenFired &amp;&amp; durationMin &gt;= cfg.nightScreenThresholdMin &amp;&amp; isNightHour(hour, cfg.nightStartHour, cfg.nightEndHour)</ID>
+    <ID>ComplexCondition:TriggerHub.kt$TriggerHub$h.size &gt;= 4 &amp;&amp; h[h.size - 4] == '\r'.code.toByte() &amp;&amp; h[h.size - 3] == '\n'.code.toByte() &amp;&amp; h[h.size - 2] == '\r'.code.toByte() &amp;&amp; h[h.size - 1] == '\n'.code.toByte()</ID>
+    <ID>CyclomaticComplexMethod:AgentRuntime.kt$AgentRuntime$private fun startLoopInternal()</ID>
+    <ID>CyclomaticComplexMethod:AutomationModule.kt$AutomationModule$private suspend fun createAutomation(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>CyclomaticComplexMethod:AutomationModule.kt$AutomationModule$private suspend fun runAutomation( entity: AutomationEntity, autonomous: Boolean, ): String</ID>
+    <ID>CyclomaticComplexMethod:AutomationModule.kt$AutomationModule$private suspend fun runReactAutomation( entity: AutomationEntity, autonomous: Boolean, ): String</ID>
+    <ID>CyclomaticComplexMethod:CodeDevModule.kt$CodeDevModule$private suspend fun handleDevelop(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>CyclomaticComplexMethod:LocalVoiceProvider.kt$LocalVoiceProvider$private fun startListeningLoop()</ID>
+    <ID>CyclomaticComplexMethod:McpClientModule.kt$McpClientModule$private fun toOfficialAmapNav(amapUri: String): String?</ID>
+    <ID>CyclomaticComplexMethod:McpClientModule.kt$McpClientModule$private suspend fun dynCrashWatchdog()</ID>
+    <ID>CyclomaticComplexMethod:McpTransport.kt$McpTransport$private fun parseResponse(raw: String, requestId: Int): JSONObject</ID>
+    <ID>CyclomaticComplexMethod:MimoTtsClient.kt$MimoTtsClient$suspend fun streamPcm( text: String, voice: String, apiKey: String, shouldStop: () -&gt; Boolean, onPcm: suspend (ByteArray) -&gt; Unit ): MimoStats</ID>
+    <ID>CyclomaticComplexMethod:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$fun chatStream( profile: LlmProfile, messages: List&lt;ChatMessage&gt;, systemPrompt: String?, functions: List&lt;FunctionDefinition&gt;, adapter: LlmAdapter? = null, apiKey: String? = null, ): Flow&lt;StreamChunk&gt;</ID>
+    <ID>CyclomaticComplexMethod:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$private fun buildChatBody( profile: LlmProfile, sysPrompt: String?, msgs: List&lt;ChatMessage&gt;?, stream: Boolean, functions: List&lt;FunctionDefinition&gt;, adapter: LlmAdapter?, singleUserMessage: String? = null, ): JSONObject</ID>
+    <ID>CyclomaticComplexMethod:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$suspend fun chatAudioStream( profile: LlmProfile, wavBytes: ByteArray, onPartial: (String) -&gt; Unit, ): String</ID>
+    <ID>CyclomaticComplexMethod:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$suspend fun ttsStreamPcm( profile: LlmProfile, text: String, adapter: LlmAdapter, shouldStop: () -&gt; Boolean, apiKey: String? = null, onPcm: suspend (ByteArray) -&gt; Unit, ): TtsStats</ID>
+    <ID>CyclomaticComplexMethod:ShizukuBridge.kt$ShizukuBridge$override fun contributions(): List&lt;com.zero.v2.core.moduleapi.ToolContribution&gt;</ID>
+    <ID>CyclomaticComplexMethod:SoftwareAec.kt$SoftwareAec$@Synchronized fun process(near: FloatArray): FloatArray</ID>
+    <ID>CyclomaticComplexMethod:SpeechSynthesisModule.kt$SpeechSynthesisModule$private suspend fun speakMelo( text: String, engine: OfflineTts, ): Boolean</ID>
+    <ID>CyclomaticComplexMethod:SpeechSynthesisModule.kt$SpeechSynthesisModule$private suspend fun speakMimo(text: String): Boolean</ID>
+    <ID>CyclomaticComplexMethod:SpeechSynthesisModule.kt$SpeechSynthesisModule$private suspend fun speakMimoStreaming(sentences: kotlinx.coroutines.channels.Channel&lt;String&gt;): Boolean</ID>
+    <ID>CyclomaticComplexMethod:SystemEventModule.kt$SystemEventModule$private fun parseTime(input: String): Long?</ID>
+    <ID>CyclomaticComplexMethod:SystemEventModule.kt$SystemEventModule$private suspend fun modifyReminder(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>CyclomaticComplexMethod:SystemEventModule.kt$SystemEventModule$private suspend fun processDueTasks(tickMs: Long)</ID>
+    <ID>CyclomaticComplexMethod:TermuxBridge.kt$TermuxBridge$private suspend fun linuxExec(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>CyclomaticComplexMethod:TriggerHub.kt$TriggerHub$private suspend fun cloudTickCheck()</ID>
+    <ID>CyclomaticComplexMethod:TriggerHub.kt$TriggerHub$private suspend fun handleSeamRequest(sock: java.net.Socket)</ID>
+    <ID>CyclomaticComplexMethod:TriggerHub.kt$TriggerHub$private suspend fun sseLoop()</ID>
+    <ID>CyclomaticComplexMethod:VisionModule.kt$VisionModule$private suspend fun analyze( imageData: String, question: String, ): FunctionResult</ID>
+    <ID>CyclomaticComplexMethod:WebSearchModule.kt$WebSearchModule$private suspend fun search( query: String, maxResults: Int, ): FunctionResult</ID>
+    <ID>EmptyFunctionBlock:AgentRuntime.kt$AgentRuntime${}</ID>
+    <ID>EmptyFunctionBlock:AlarmModule.kt$AlarmModule${}</ID>
+    <ID>EmptyFunctionBlock:AlarmModule.kt$AlarmModule.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:AutomationModule.kt$AutomationModule${}</ID>
+    <ID>EmptyFunctionBlock:CalendarModule.kt$CalendarModule${}</ID>
+    <ID>EmptyFunctionBlock:CalendarModule.kt$CalendarModule.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:CodeDevModule.kt$CodeDevModule${}</ID>
+    <ID>EmptyFunctionBlock:LocationModule.kt$LocationModule${}</ID>
+    <ID>EmptyFunctionBlock:LocationModule.kt$LocationModule.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:NotificationModule.kt$NotificationModule${}</ID>
+    <ID>EmptyFunctionBlock:NotificationModule.kt$NotificationModule.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:OpenAiChatModule.kt$OpenAiChatModule${}</ID>
+    <ID>EmptyFunctionBlock:OpenAiChatModule.kt$OpenAiChatModule.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:Scheduler.kt$Scheduler${}</ID>
+    <ID>EmptyFunctionBlock:Scheduler.kt$Scheduler.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:ScreenCaptureModule.kt$ScreenCaptureModule${}</ID>
+    <ID>EmptyFunctionBlock:ScreenCaptureModule.kt$ScreenCaptureModule.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:ScreenTextReader.kt$ScreenTextReader${}</ID>
+    <ID>EmptyFunctionBlock:ScreenTextReader.kt$ScreenTextReader.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:ShizukuBridge.kt$ShizukuBridge${}</ID>
+    <ID>EmptyFunctionBlock:ShizukuBridge.kt$ShizukuBridge.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:SpeechRecognitionModule.kt$SpeechRecognitionModule${}</ID>
+    <ID>EmptyFunctionBlock:SpeechSynthesisModule.kt$SpeechSynthesisModule.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:SystemEventModule.kt$SystemEventModule${}</ID>
+    <ID>EmptyFunctionBlock:SystemEventModule.kt$SystemEventModule.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:TriggerHub.kt$TriggerHub${}</ID>
+    <ID>EmptyFunctionBlock:UsageStatsModule.kt$UsageStatsModule${}</ID>
+    <ID>EmptyFunctionBlock:UsageStatsModule.kt$UsageStatsModule.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:VisionModule.kt$VisionModule${}</ID>
+    <ID>EmptyFunctionBlock:VoiceActivityModule.kt$VoiceActivityModule${}</ID>
+    <ID>EmptyFunctionBlock:WebSearchModule.kt$WebSearchModule${}</ID>
+    <ID>EmptyFunctionBlock:ZeroCloudTrust.kt$ZeroCloudTrust.&lt;no name provided&gt;${}</ID>
+    <ID>ForbiddenComment:ApiKeyProvider.kt$ApiKeyProvider$// TODO: Phase 8 接入 DataStore</ID>
+    <ID>FunctionNaming:TriggerHub.kt$TriggerHub.Companion$private fun CLOUD_EVENTS_URL(): String</ID>
+    <ID>FunctionOnlyReturningConstant:AutomationModule.kt$ExecutionGuard$fun canExecute(): Boolean</ID>
+    <ID>FunctionOnlyReturningConstant:ShizukuBridge.kt$ShizukuBridge$private fun shizukuUnavailableText()</ID>
+    <ID>LargeClass:AutomationModule.kt$AutomationModule : IZeroModuleAgentJobToolContributor</ID>
+    <ID>LargeClass:McpClientModule.kt$McpClientModule : IZeroModuleToolContributor</ID>
+    <ID>LargeClass:SpeechSynthesisModule.kt$SpeechSynthesisModule : IZeroModuleToolContributor</ID>
+    <ID>LargeClass:SystemEventModule.kt$SystemEventModule : IZeroModuleAgentJobToolContributor</ID>
+    <ID>LargeClass:TermuxBridge.kt$TermuxBridge : IZeroModuleToolContributor</ID>
+    <ID>LargeClass:TriggerHub.kt$TriggerHub : IZeroModuleToolContributor</ID>
+    <ID>LongMethod:AgentRuntime.kt$AgentRuntime$private fun startLoopInternal()</ID>
+    <ID>LongMethod:AutomationModule.kt$AutomationModule$override fun contributions(): List&lt;com.zero.v2.core.moduleapi.ToolContribution&gt;</ID>
+    <ID>LongMethod:AutomationModule.kt$AutomationModule$private suspend fun generatePlan(description: String): ExecutionPlan</ID>
+    <ID>LongMethod:AutomationModule.kt$AutomationModule$private suspend fun runAutomation( entity: AutomationEntity, autonomous: Boolean, ): String</ID>
+    <ID>LongMethod:AutomationModule.kt$AutomationModule$private suspend fun runReactAutomation( entity: AutomationEntity, autonomous: Boolean, ): String</ID>
+    <ID>LongMethod:AutonomousThinkingJob.kt$AutonomousThinkingJob$private suspend fun executeTurn(event: TriggerEvent)</ID>
+    <ID>LongMethod:CalendarModule.kt$CalendarModule$override fun contributions(): List&lt;com.zero.v2.core.moduleapi.ToolContribution&gt;</ID>
+    <ID>LongMethod:CodeDevModule.kt$CodeDevModule$private suspend fun handleDevelop(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>LongMethod:LocalVoiceProvider.kt$LocalVoiceProvider$private fun processTurn(userText: String)</ID>
+    <ID>LongMethod:LocalVoiceProvider.kt$LocalVoiceProvider$private fun startListeningLoop()</ID>
+    <ID>LongMethod:McpClientModule.kt$McpClientModule$override fun contributions(): List&lt;com.zero.v2.core.moduleapi.ToolContribution&gt;</ID>
+    <ID>LongMethod:McpClientModule.kt$McpClientModule$suspend fun mountDynamicModule(module: DynamicModuleEntity): Boolean</ID>
+    <ID>LongMethod:McpClientModule.kt$McpClientModule$suspend fun refreshAllTools()</ID>
+    <ID>LongMethod:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$fun chatStream( profile: LlmProfile, messages: List&lt;ChatMessage&gt;, systemPrompt: String?, functions: List&lt;FunctionDefinition&gt;, adapter: LlmAdapter? = null, apiKey: String? = null, ): Flow&lt;StreamChunk&gt;</ID>
+    <ID>LongMethod:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$private fun buildChatBody( profile: LlmProfile, sysPrompt: String?, msgs: List&lt;ChatMessage&gt;?, stream: Boolean, functions: List&lt;FunctionDefinition&gt;, adapter: LlmAdapter?, singleUserMessage: String? = null, ): JSONObject</ID>
+    <ID>LongMethod:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$suspend fun chatAudioStream( profile: LlmProfile, wavBytes: ByteArray, onPartial: (String) -&gt; Unit, ): String</ID>
+    <ID>LongMethod:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$suspend fun ttsStreamPcm( profile: LlmProfile, text: String, adapter: LlmAdapter, shouldStop: () -&gt; Boolean, apiKey: String? = null, onPcm: suspend (ByteArray) -&gt; Unit, ): TtsStats</ID>
+    <ID>LongMethod:ShizukuBridge.kt$ShizukuBridge$override fun contributions(): List&lt;com.zero.v2.core.moduleapi.ToolContribution&gt;</ID>
+    <ID>LongMethod:SoftwareAec.kt$SoftwareAec$@Synchronized fun process(near: FloatArray): FloatArray</ID>
+    <ID>LongMethod:SpeechSynthesisModule.kt$SpeechSynthesisModule$private suspend fun speakMelo( text: String, engine: OfflineTts, ): Boolean</ID>
+    <ID>LongMethod:SpeechSynthesisModule.kt$SpeechSynthesisModule$private suspend fun speakMimo(text: String): Boolean</ID>
+    <ID>LongMethod:SpeechSynthesisModule.kt$SpeechSynthesisModule$private suspend fun speakMimoStreaming(sentences: kotlinx.coroutines.channels.Channel&lt;String&gt;): Boolean</ID>
+    <ID>LongMethod:SystemEventModule.kt$SystemEventModule$override fun contributions(): List&lt;com.zero.v2.core.moduleapi.ToolContribution&gt;</ID>
+    <ID>LongMethod:SystemEventModule.kt$SystemEventModule$private fun parseTime(input: String): Long?</ID>
+    <ID>LongMethod:SystemEventModule.kt$SystemEventModule$private suspend fun modifyReminder(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>LongMethod:SystemEventModule.kt$SystemEventModule$private suspend fun processDueTasks(tickMs: Long)</ID>
+    <ID>LongMethod:SystemEventModule.kt$SystemEventModule$private suspend fun restoreRemindersLocked()</ID>
+    <ID>LongMethod:TermuxBridge.kt$TermuxBridge$override fun contributions(): List&lt;com.zero.v2.core.moduleapi.ToolContribution&gt;</ID>
+    <ID>LongMethod:TriggerHub.kt$TriggerHub$private suspend fun cloudTickCheck()</ID>
+    <ID>LongMethod:TriggerHub.kt$TriggerHub$private suspend fun handleSeamRequest(sock: java.net.Socket)</ID>
+    <ID>LongMethod:TriggerHub.kt$TriggerHub$private suspend fun sendAutonomousNotify( title: String, message: String, ): FunctionResult</ID>
+    <ID>LongMethod:TriggerHub.kt$TriggerHub$private suspend fun sseLoop()</ID>
+    <ID>LongMethod:VisionModule.kt$VisionModule$private suspend fun analyze( imageData: String, question: String, ): FunctionResult</ID>
+    <ID>LongMethod:WebSearchModule.kt$WebSearchModule$private suspend fun search( query: String, maxResults: Int, ): FunctionResult</ID>
+    <ID>LongParameterList:AutomationModule.kt$AutomationModule$( private val functionRegistry: FunctionRegistryModule, private val chatBus: ChatBus, private val modelSelector: ModelSelector, private val automationDao: AutomationDao, private val traceManager: AgentTraceManager, private val agentRuntime: AgentRuntime, private val exactAlarmScheduler: ExactAlarmScheduler, private val budgetGuard: com.zero.v2.services.agent.BudgetGuard, // SD3：SELF_DRIVE 执行模式——到点把任务交给自驱动回合（共享主对话上下文，TriggerHub 不依赖本模块无环） private val triggerHub: com.zero.v2.services.agent.TriggerHub, )</ID>
+    <ID>LongParameterList:McpClientModule.kt$McpClientModule$( private val serverStore: McpServerStore, private val functionRegistry: FunctionRegistryModule, private val secureKeyStore: CredentialStore, private val traceManager: AgentTraceManager, private val trustConfig: TrustConfig, // S7.2：启动实例化锚（collect store 流自刷新 pins） private val termuxBridge: TermuxBridge, // M2.2：supervisor 控制面（启停/端点回报） private val dynamicModuleDao: DynamicModuleDao, // M2.2：动态模块注册表（D51/状态） private val moduleConfigStore: ModuleConfigStore, // M2.2：D68 配置注入源 )</ID>
+    <ID>LongParameterList:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$( profile: LlmProfile, messages: List&lt;ChatMessage&gt;, systemPrompt: String?, functions: List&lt;FunctionDefinition&gt;, adapter: LlmAdapter? = null, apiKey: String? = null, )</ID>
+    <ID>LongParameterList:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$( profile: LlmProfile, sysPrompt: String?, msgs: List&lt;ChatMessage&gt;?, stream: Boolean, functions: List&lt;FunctionDefinition&gt;, adapter: LlmAdapter?, singleUserMessage: String? = null, )</ID>
+    <ID>LongParameterList:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$( profile: LlmProfile, text: String, adapter: LlmAdapter, shouldStop: () -&gt; Boolean, apiKey: String? = null, onPcm: suspend (ByteArray) -&gt; Unit, )</ID>
+    <ID>LongParameterList:RealtimeVoiceProvider.kt$ChatEngineBridge$( userText: String, source: String = "VOICE", onStatus: ((String) -&gt; Unit)? = null, onSentence: ((String) -&gt; Unit)? = null, triggerId: String? = null, // D1-fix（A1b 接线）：AUTONOMOUS 回合的 TriggerEvent.id 贯通 systemSource: String? = null // S2R.3：事件来源细名（TriggerEvent.source）——落 userMsg.systemSource（§2.1 留痕/审计链） )</ID>
+    <ID>LongParameterList:SpeechSynthesisModule.kt$SpeechSynthesisModule$( @ApplicationContext private val context: Context, private val secureKeyStore: CredentialStore, private val openAiClient: com.zero.v2.services.llm.OpenAiCompatibleClient, private val mimoAdapter: com.zero.v2.services.llm.MimoTtsLlmAdapter, private val configStore: com.zero.v2.core.data.store.ModuleConfigStore, private val traceManager: AgentTraceManager, private val profileStore: com.zero.v2.services.llm.LlmProfileStore, private val functionRegistry: FunctionRegistryModule, private val ttsWavSink: TtsWavSink, )</ID>
+    <ID>LongParameterList:SystemEventModule.kt$SystemEventModule$( private val chatBus: ChatBus, private val systemBus: SystemBus, private val functionRegistry: FunctionRegistryModule, private val traceManager: AgentTraceManager, private val agentRuntime: AgentRuntime, private val exactAlarmScheduler: ExactAlarmScheduler, private val systemStateDao: com.zero.v2.core.data.dao.SystemStateDao, private val triggerHub: com.zero.v2.services.agent.TriggerHub, // SD1.1：next_tick 静默闹钟唤醒自驱（提醒源已按用户裁定移除） @ApplicationContext private val context: Context, )</ID>
+    <ID>LongParameterList:SystemEventModule.kt$SystemEventModule.SystemTickTask$( val id: String, val type: TickTaskType, var triggerTimeMs: Long, var remark: String = "", var isActive: Boolean = true, var isRecurring: Boolean = false, var recurringMs: Long = 0, val automationId: String? = null, )</ID>
+    <ID>LongParameterList:TriggerHub.kt$TriggerHub$( @ApplicationContext private val context: Context, private val systemBus: SystemBus, private val autonomousJob: AutonomousThinkingJob, private val whitelistStore: TriggerWhitelistStore, private val chatEngine: ChatEngineBridge, private val functionRegistry: FunctionRegistryModule, private val traceManager: AgentTraceManager, private val mcpModule: com.zero.v2.services.mcp.McpClientModule, private val agentRuntime: AgentRuntime, private val secureKeyStore: com.zero.v2.services.security.CredentialStore, )</ID>
+    <ID>LoopWithTooManyJumpStatements:AutomationModule.kt$AutomationModule$while</ID>
+    <ID>LoopWithTooManyJumpStatements:LocalVoiceProvider.kt$LocalVoiceProvider$while</ID>
+    <ID>LoopWithTooManyJumpStatements:LocationModule.kt$LocationModule$for</ID>
+    <ID>LoopWithTooManyJumpStatements:McpClient.kt$McpClient$for</ID>
+    <ID>LoopWithTooManyJumpStatements:McpClientModule.kt$McpClientModule$for</ID>
+    <ID>LoopWithTooManyJumpStatements:McpClientModule.kt$McpClientModule$while</ID>
+    <ID>LoopWithTooManyJumpStatements:McpTransport.kt$McpTransport$for</ID>
+    <ID>LoopWithTooManyJumpStatements:MimoTtsClient.kt$MimoTtsClient$while</ID>
+    <ID>LoopWithTooManyJumpStatements:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$for</ID>
+    <ID>LoopWithTooManyJumpStatements:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$while</ID>
+    <ID>LoopWithTooManyJumpStatements:SpeechSynthesisModule.kt$SpeechSynthesisModule$for</ID>
+    <ID>LoopWithTooManyJumpStatements:TermuxBridge.kt$TermuxBridge$while</ID>
+    <ID>LoopWithTooManyJumpStatements:TriggerHub.kt$TriggerHub$for</ID>
+    <ID>LoopWithTooManyJumpStatements:TriggerHub.kt$TriggerHub$while</ID>
+    <ID>MagicNumber:AgentRuntime.kt$AgentRuntime$10</ID>
+    <ID>MagicNumber:AgentRuntime.kt$AgentRuntime$1000L</ID>
+    <ID>MagicNumber:AgentRuntime.kt$AgentRuntime$10_000L</ID>
+    <ID>MagicNumber:AgentRuntime.kt$AgentRuntime$60</ID>
+    <ID>MagicNumber:AgentRuntime.kt$AgentRuntime$60_000L</ID>
+    <ID>MagicNumber:AgentRuntimeConfig.kt$AgentRuntimeConfig$10.0f</ID>
+    <ID>MagicNumber:AgentRuntimeConfig.kt$AgentRuntimeConfig$120</ID>
+    <ID>MagicNumber:AgentRuntimeConfig.kt$AgentRuntimeConfig$3.0</ID>
+    <ID>MagicNumber:AgentRuntimeConfig.kt$AgentRuntimeConfig$3.0f</ID>
+    <ID>MagicNumber:AgentRuntimeConfig.kt$AgentRuntimeConfig$30</ID>
+    <ID>MagicNumber:AgentRuntimeConfig.kt$AgentRuntimeConfig$3600</ID>
+    <ID>MagicNumber:AgentRuntimeConfig.kt$AgentRuntimeConfig$4</ID>
+    <ID>MagicNumber:AgentRuntimeConfig.kt$AgentRuntimeConfig$600</ID>
+    <ID>MagicNumber:AgentRuntimeConfig.kt$AgentRuntimeConfig$8</ID>
+    <ID>MagicNumber:AgentRuntimeConfig.kt$AgentRuntimeConfig$90</ID>
+    <ID>MagicNumber:AlarmModule.kt$AlarmModule$20</ID>
+    <ID>MagicNumber:AlarmModule.kt$AlarmModule$23</ID>
+    <ID>MagicNumber:AlarmModule.kt$AlarmModule$40</ID>
+    <ID>MagicNumber:AlarmModule.kt$AlarmModule$50</ID>
+    <ID>MagicNumber:AlarmModule.kt$AlarmModule$59</ID>
+    <ID>MagicNumber:AlarmModule.kt$AlarmModule$60</ID>
+    <ID>MagicNumber:AlarmModule.kt$AlarmModule$86400</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$120</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$1500</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$2000</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$24</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$2500</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$3</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$30</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$300</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$3000</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$36</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$40</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$4000</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$500</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$60</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$6000</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$80</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModule$86_400_000L</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModuleConfig$10</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModuleConfig$100</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModuleConfig$240</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModuleConfig$2_000_000L</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModuleConfig$3</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModuleConfig$5</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModuleConfig$500_000</ID>
+    <ID>MagicNumber:AutomationModule.kt$AutomationModuleConfig$50_000L</ID>
+    <ID>MagicNumber:AutomationPlan.kt$RuleBasedTaskParser$12</ID>
+    <ID>MagicNumber:AutomationPlan.kt$RuleBasedTaskParser$3</ID>
+    <ID>MagicNumber:AutomationSchedulePolicy.kt$AutomationSchedulePolicy$1000</ID>
+    <ID>MagicNumber:AutomationSchedulePolicy.kt$AutomationSchedulePolicy$3600</ID>
+    <ID>MagicNumber:AutomationSchedulePolicy.kt$AutomationSchedulePolicy$60</ID>
+    <ID>MagicNumber:AutonomousThinkingJob.kt$AutonomousThinkingJob$3</ID>
+    <ID>MagicNumber:AutonomousThinkingJob.kt$AutonomousThinkingJob$40</ID>
+    <ID>MagicNumber:AutonomousThinkingJob.kt$AutonomousThinkingJob$50</ID>
+    <ID>MagicNumber:AutonomousThinkingJob.kt$AutonomousThinkingJob$60</ID>
+    <ID>MagicNumber:AutonomousThinkingJob.kt$AutonomousThinkingJob$600</ID>
+    <ID>MagicNumber:AutonomousThinkingJob.kt$AutonomousThinkingJob$8</ID>
+    <ID>MagicNumber:BudgetGuard.kt$BudgetGuard$10.0</ID>
+    <ID>MagicNumber:BudgetGuard.kt$BudgetGuard$10.0f</ID>
+    <ID>MagicNumber:BudgetGuard.kt$BudgetGuard$100</ID>
+    <ID>MagicNumber:BudgetGuard.kt$BudgetGuard$100.0</ID>
+    <ID>MagicNumber:BudgetGuard.kt$BudgetGuard$100_000_000L</ID>
+    <ID>MagicNumber:BudgetGuard.kt$BudgetGuard$1_000_000.0</ID>
+    <ID>MagicNumber:BudgetGuard.kt$BudgetGuard$20_000_000L</ID>
+    <ID>MagicNumber:BudgetGuard.kt$BudgetGuard$40</ID>
+    <ID>MagicNumber:BudgetGuard.kt$BudgetGuard$5.0f</ID>
+    <ID>MagicNumber:BudgetGuard.kt$BudgetGuard$50.0f</ID>
+    <ID>MagicNumber:BudgetGuard.kt$BudgetGuard$8_000_000L</ID>
+    <ID>MagicNumber:CalendarModule.kt$CalendarModule$1000</ID>
+    <ID>MagicNumber:CalendarModule.kt$CalendarModule$20</ID>
+    <ID>MagicNumber:CalendarModule.kt$CalendarModule$3</ID>
+    <ID>MagicNumber:CalendarModule.kt$CalendarModule$30</ID>
+    <ID>MagicNumber:CalendarModule.kt$CalendarModule$4</ID>
+    <ID>MagicNumber:CalendarModule.kt$CalendarModule$40</ID>
+    <ID>MagicNumber:CalendarModule.kt$CalendarModule$5</ID>
+    <ID>MagicNumber:CalendarModule.kt$CalendarModule$50</ID>
+    <ID>MagicNumber:CalendarModule.kt$CalendarModule$6</ID>
+    <ID>MagicNumber:CalendarModule.kt$CalendarModule$60</ID>
+    <ID>MagicNumber:CodeDevModule.kt$CodeDevModule$300</ID>
+    <ID>MagicNumber:CodeDevModule.kt$CodeDevModule$60</ID>
+    <ID>MagicNumber:CodeDevModule.kt$CodeDevModule$80</ID>
+    <ID>MagicNumber:CodeDevModule.kt$CodeDevModuleConfig$120</ID>
+    <ID>MagicNumber:CodeDevModule.kt$CodeDevModuleConfig$15</ID>
+    <ID>MagicNumber:CodeDevModule.kt$CodeDevModuleConfig$200</ID>
+    <ID>MagicNumber:CodeDevModule.kt$CodeDevModuleConfig$3</ID>
+    <ID>MagicNumber:CodeDevModule.kt$CodeDevModuleConfig$5</ID>
+    <ID>MagicNumber:CodeDevModule.kt$CodeDevModuleConfig$50</ID>
+    <ID>MagicNumber:CompileManager.kt$CompileManager$100</ID>
+    <ID>MagicNumber:CompileManager.kt$CompileManager$1000L</ID>
+    <ID>MagicNumber:CompileManager.kt$CompileManager$15</ID>
+    <ID>MagicNumber:CompileManager.kt$CompileManager$1500</ID>
+    <ID>MagicNumber:CompileManager.kt$CompileManager$15_000L</ID>
+    <ID>MagicNumber:CompileManager.kt$CompileManager$20</ID>
+    <ID>MagicNumber:CompileManager.kt$CompileManager$500</ID>
+    <ID>MagicNumber:CompileManager.kt$CompileManager$60</ID>
+    <ID>MagicNumber:CompileManager.kt$CompileManager$75_000L</ID>
+    <ID>MagicNumber:ContentExtractor.kt$ContentExtractor$100</ID>
+    <ID>MagicNumber:ContentExtractor.kt$ContentExtractor$3</ID>
+    <ID>MagicNumber:ExactAlarmReceiver.kt$ExactAlarmReceiver$50</ID>
+    <ID>MagicNumber:ExactAlarmReceiver.kt$ExactAlarmScheduler$31</ID>
+    <ID>MagicNumber:ExactAlarmReceiver.kt$ExactAlarmScheduler$60_000L</ID>
+    <ID>MagicNumber:LlmProfileStore.kt$LlmProfileStore$0.7</ID>
+    <ID>MagicNumber:LlmProfileStore.kt$LlmProfileStore$1024</ID>
+    <ID>MagicNumber:LlmProfileStore.kt$LlmProfileStore$1_048_576</ID>
+    <ID>MagicNumber:LlmProfileStore.kt$LlmProfileStore$4096</ID>
+    <ID>MagicNumber:LlmProfileStore.kt$LlmProfileStore$50</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$0.9f</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$10</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$100</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$150</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$20</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$2000</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$250</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$4</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$40</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$50</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$500</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$60</ID>
+    <ID>MagicNumber:LocalVoiceProvider.kt$LocalVoiceProvider$8</ID>
+    <ID>MagicNumber:LocationModule.kt$LocationModule$1000</ID>
+    <ID>MagicNumber:McpClient.kt$McpClient$16</ID>
+    <ID>MagicNumber:McpClient.kt$McpClient$60</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModule$1000L</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModule$120</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModule$120_000L</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModule$20</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModule$3</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModule$36</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModule$40</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModule$50</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModule$80</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModuleConfig$10</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModuleConfig$3600</ID>
+    <ID>MagicNumber:McpClientModule.kt$McpClientModuleConfig$60</ID>
+    <ID>MagicNumber:McpServerStore.kt$McpServerStore$60</ID>
+    <ID>MagicNumber:McpSocketTransport.kt$McpSocketTransport$0xFF</ID>
+    <ID>MagicNumber:McpSocketTransport.kt$McpSocketTransport$16</ID>
+    <ID>MagicNumber:McpSocketTransport.kt$McpSocketTransport$24</ID>
+    <ID>MagicNumber:McpSocketTransport.kt$McpSocketTransport$3</ID>
+    <ID>MagicNumber:McpSocketTransport.kt$McpSocketTransport$4</ID>
+    <ID>MagicNumber:McpSocketTransport.kt$McpSocketTransport$60</ID>
+    <ID>MagicNumber:McpSocketTransport.kt$McpSocketTransport$8</ID>
+    <ID>MagicNumber:McpTransport.kt$McpTransport$120</ID>
+    <ID>MagicNumber:McpTransport.kt$McpTransport$15</ID>
+    <ID>MagicNumber:McpTransport.kt$McpTransport$60</ID>
+    <ID>MagicNumber:MimoTtsClient.kt$MimoTtsClient$120</ID>
+    <ID>MagicNumber:MimoTtsClient.kt$MimoTtsClient$60</ID>
+    <ID>MagicNumber:NotificationModule.kt$NotificationModule$12</ID>
+    <ID>MagicNumber:NotificationModule.kt$NotificationModule$16</ID>
+    <ID>MagicNumber:NotificationModule.kt$NotificationModule$20</ID>
+    <ID>MagicNumber:NotificationModule.kt$NotificationModule$30</ID>
+    <ID>MagicNumber:NotificationModule.kt$NotificationModule$33</ID>
+    <ID>MagicNumber:NotificationModule.kt$NotificationModule$40</ID>
+    <ID>MagicNumber:NotificationModule.kt$NotificationModule$5</ID>
+    <ID>MagicNumber:NotificationModule.kt$NotificationModule$80</ID>
+    <ID>MagicNumber:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$10</ID>
+    <ID>MagicNumber:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$100</ID>
+    <ID>MagicNumber:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$1024</ID>
+    <ID>MagicNumber:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$120</ID>
+    <ID>MagicNumber:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$200</ID>
+    <ID>MagicNumber:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$60</ID>
+    <ID>MagicNumber:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$80</ID>
+    <ID>MagicNumber:RetrievalKit.kt$RetrievalKit$4</ID>
+    <ID>MagicNumber:RetrievalKit.kt$RetrievalKit$8</ID>
+    <ID>MagicNumber:Scheduler.kt$Scheduler$60</ID>
+    <ID>MagicNumber:ScreenCaptureModule.kt$ScreenCaptureModule$1024</ID>
+    <ID>MagicNumber:ScreenCaptureModule.kt$ScreenCaptureModule$30</ID>
+    <ID>MagicNumber:ScreenCaptureModule.kt$ScreenCaptureModule$40</ID>
+    <ID>MagicNumber:ScreenCaptureModule.kt$ScreenCaptureModule$50</ID>
+    <ID>MagicNumber:ScreenTextReader.kt$ScreenTextBuilder$1000</ID>
+    <ID>MagicNumber:ScreenTextReader.kt$ScreenTextReader$200</ID>
+    <ID>MagicNumber:ScreenTextReader.kt$ScreenTextReader$3000</ID>
+    <ID>MagicNumber:ScreenTextReader.kt$ScreenTextReader$50</ID>
+    <ID>MagicNumber:ScreenTextReader.kt$ScreenTextReader$8000</ID>
+    <ID>MagicNumber:SecureKeyStore.kt$SecureKeyStore$4</ID>
+    <ID>MagicNumber:ServicesModule.kt$ServicesModule$120</ID>
+    <ID>MagicNumber:ServicesModule.kt$ServicesModule$30</ID>
+    <ID>MagicNumber:ShizukuBridge.kt$ShizukuBridge$10</ID>
+    <ID>MagicNumber:ShizukuBridge.kt$ShizukuBridge$10_000</ID>
+    <ID>MagicNumber:ShizukuBridge.kt$ShizukuBridge$200</ID>
+    <ID>MagicNumber:ShizukuBridge.kt$ShizukuBridge$300</ID>
+    <ID>MagicNumber:ShizukuBridge.kt$ShizukuBridge$50</ID>
+    <ID>MagicNumber:ShizukuBridge.kt$ShizukuBridge$60</ID>
+    <ID>MagicNumber:ShizukuBridge.kt$ShizukuBridge$80</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$0.0003f</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$0.02f</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$0.15f</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$0.3f</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$0.7f</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$0.98f</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$0.9997f</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$0.999f</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$0xFF</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$1000</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$10f</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$32768f</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$4f</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$5L</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$8</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$8L</ID>
+    <ID>MagicNumber:SoftwareAec.kt$SoftwareAec$8f</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$0.25f</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$0.5f</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$0xFF</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$1.2f</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$10</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$11</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$12</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$13</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$14</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$15</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$16</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$2.4f</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$20</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$20f</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$22</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$24</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$28</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$3</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$30</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$32</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$32767f</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$34</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$36</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$37</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$38</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$39</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$4</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$40</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$44</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$45</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$50</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$60</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$8</ID>
+    <ID>MagicNumber:SpeechRecognitionModule.kt$SpeechRecognitionModule$9</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$0.667f</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$0.8f</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$0xFF</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$10</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$1000</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$1000L</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$100f</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$1024</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$11</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$12</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$13</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$14</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$15</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$16</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$20</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$200</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$22</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$24</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$25</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$28</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$3</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$32</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$32767</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$32767f</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$34</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$36</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$37</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$38</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$39</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$4</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$40</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$44</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$50</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$60</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$64</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$8</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$80</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechSynthesisModule$9</ID>
+    <ID>MagicNumber:SpeechSynthesisModule.kt$SpeechTtsConfig$100</ID>
+    <ID>MagicNumber:SystemActionUserService.kt$SystemActionUserService$16</ID>
+    <ID>MagicNumber:SystemActionUserService.kt$SystemActionUserService$2</ID>
+    <ID>MagicNumber:SystemActionUserService.kt$SystemActionUserService$200</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$10</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$100</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$1000</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$1000L</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$15</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$3</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$30</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$300</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$31</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$33</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$36</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$3600_000</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$3_600_000L</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$4</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$40</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$400</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$4101</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$5</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$50</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$6</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$60</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$60_000</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$60_000L</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$7</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$8</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$86400_000</ID>
+    <ID>MagicNumber:SystemEventModule.kt$SystemEventModule$86_400_000L</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$0xFF</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$1000</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$1000L</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$1024</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$10_000L</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$120</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$15</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$1500</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$15_000L</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$16</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$1_048_576</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$200</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$24</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$262_144</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$3</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$31</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$33</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$4</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$50</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$60</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$600_000L</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$60_000L</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$8</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge$80</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge.&lt;no name provided&gt;$1024</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridge.&lt;no name provided&gt;$64</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridgeConfig$10</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridgeConfig$1024</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridgeConfig$1800</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridgeConfig$20</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridgeConfig$30</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridgeConfig$300</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridgeConfig$3600</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridgeConfig$5</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridgeConfig$600</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridgeConfig$65535</ID>
+    <ID>MagicNumber:TermuxBridge.kt$TermuxBridgeConfig$7878</ID>
+    <ID>MagicNumber:TermuxCommandPolicy.kt$TermuxCommandPolicy$120</ID>
+    <ID>MagicNumber:TermuxExecutionPolicy.kt$TermuxExecutionPolicy$1000L</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$100</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$1000L</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$1024</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$10_000</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$15</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$20</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$200</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$3</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$30</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$300_000</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$300_000L</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$4</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$40</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$4000</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$50</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$60_000</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$60_000L</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$64</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$7879</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$8</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$8192</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$86_400_000L</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHub$90</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHubConfig$100</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHubConfig$1000</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHubConfig$120</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHubConfig$15</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHubConfig$20</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHubConfig$200</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHubConfig$23</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHubConfig$30</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHubConfig$45</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHubConfig$5</ID>
+    <ID>MagicNumber:TriggerHub.kt$TriggerHubConfig$6</ID>
+    <ID>MagicNumber:TrustConfig.kt$TrustConfig$24</ID>
+    <ID>MagicNumber:TrustConfig.kt$TrustConfig$64</ID>
+    <ID>MagicNumber:UsageStatsModule.kt$UsageStatsModule$29</ID>
+    <ID>MagicNumber:UsageStatsModule.kt$UsageStatsModule$3_600_000</ID>
+    <ID>MagicNumber:UsageStatsModule.kt$UsageStatsModule$6</ID>
+    <ID>MagicNumber:UsageStatsModule.kt$UsageStatsModule$60_000</ID>
+    <ID>MagicNumber:UsageStatsModule.kt$UsageStatsModule$8</ID>
+    <ID>MagicNumber:VisionModule.kt$VisionModule$120</ID>
+    <ID>MagicNumber:VisionModule.kt$VisionModule$200</ID>
+    <ID>MagicNumber:VoiceActivityModule.kt$SpeechVadConfig$0.35</ID>
+    <ID>MagicNumber:VoiceActivityModule.kt$VoiceActivityModule$0.1f</ID>
+    <ID>MagicNumber:VoiceActivityModule.kt$VoiceActivityModule$0.9f</ID>
+    <ID>MagicNumber:WebSearchModule.kt$WebSearchModule$10</ID>
+    <ID>MagicNumber:WebSearchModule.kt$WebSearchModule$200</ID>
+    <ID>MagicNumber:WebSearchModule.kt$WebSearchModule$2000</ID>
+    <ID>MagicNumber:WebSearchModule.kt$WebSearchModule$300</ID>
+    <ID>MaxLineLength:AgentRuntime.kt$AgentRuntime$private val triggerHub: dagger.Lazy&lt;com.zero.v2.services.agent.TriggerHub&gt; // SD2：报点随发自驱（Lazy 破构造环——TriggerHub 依赖 AgentRuntime）</ID>
+    <ID>MaxLineLength:AutomationModule.kt$AutomationModule$"DAILY" -&gt; AutomationSchedulePolicy.nextRun("DAILY", entity.scheduleValue, now).takeIf { it &gt; now } ?: (now + 86_400_000L)</ID>
+    <ID>MaxLineLength:AutomationModule.kt$AutomationModule$"automation_run_done: id=${entity.id} steps=${plan.steps.size} ok=${results.values.count { !it.startsWith("[步骤异常]") &amp;&amp; !it.startsWith("[工具失败]") }}"</ID>
+    <ID>MaxLineLength:AutomationModule.kt$AutomationModule$"automation_run_start: id=${entity.id} goal=${plan.goal.take(40)} steps=${plan.steps.size} autonomous=$autonomous"</ID>
+    <ID>MaxLineLength:AutomationModule.kt$AutomationModule$"exec_mode" to mapOf("type" to "string", "description" to "PLAN(静态步骤)/REACT(LLM独立循环智能执行)/SELF_DRIVE(到点交自驱动回合——共享对话上下文全权处理，适合开放性复杂工作流)")</ID>
+    <ID>MaxLineLength:AutomationModule.kt$AutomationModule$"plan_json" to mapOf("type" to "string", "description" to "预生成计划 JSON（仅供 UI 草稿确认流传入，AI 调用时忽略）")</ID>
+    <ID>MaxLineLength:AutomationModule.kt$AutomationModule$"react_start: id=${entity.id} goal=${goal.take(40)} maxRounds=${config.maxSteps} autonomous=$autonomous"</ID>
+    <ID>MaxLineLength:AutomationModule.kt$AutomationModule$"schedule_type" to mapOf("type" to "string", "description" to "MANUAL(仅手动)/DAILY(每日定时)/INTERVAL(固定间隔)")</ID>
+    <ID>MaxLineLength:AutomationModule.kt$AutomationModule$chatBus.onPokeSend.emit(PokeEvent(message = finalText.take(500), source = metadata.id, priority = PokePriority.NORMAL))</ID>
+    <ID>MaxLineLength:AutomationModule.kt$AutomationModule$results.toSortedMap().forEach { (i, r) -&gt; appendLine("第${i}轮: ${r.replace(Regex("\\s+"), " ").take(120)}") }</ID>
+    <ID>MaxLineLength:AutonomousThinkingJob.kt$AutonomousThinkingJob$"turn_done: source=${event.source} reply=${reply.take(60)} ms=${System.currentTimeMillis() - t0}"</ID>
+    <ID>MaxLineLength:AutonomousThinkingJob.kt$AutonomousThinkingJob$"原任务：${event.payload.replace(Regex("「续跑#\\d+」[^。]*。"), "").take(600)}。"</ID>
+    <ID>MaxLineLength:AutonomousThinkingJob.kt$AutonomousThinkingJob$"回复方式：调用 $send 工具，参数 channel=\"WECHAT_PRIVATE\"、peer=本条消息开头方括号内的完整 sender 串（@im.wechat 结尾，原样传入勿截断）、text=你的回复（像微信聊天一样简洁自然，≤300 字为宜）。"</ID>
+    <ID>MaxLineLength:AutonomousThinkingJob.kt$AutonomousThinkingJob$appendLine("回复方式：调用 $send 工具，参数 channel=\"${event.source}\"、peer=本条消息开头方括号内的完整 sender 串（原样传入勿截断）、text=你的回复（简洁自然，≤300 字为宜）。")</ID>
+    <ID>MaxLineLength:AutonomousThinkingJob.kt$AutonomousThinkingJob$appendLine("回复方式：调用 dyn_qqbot_send 工具，参数 type=\"group\"、target=载荷 [群:xxx] 中的群号、text=你的回复（群内可见，简洁克制，可@提问者，≤200 字为宜）。")</ID>
+    <ID>MaxLineLength:AutonomousThinkingJob.kt$AutonomousThinkingJob$appendLine("回复方式：调用 dyn_qqbot_send 工具，参数 type=\"private\"、target=本条消息开头方括号内的 QQ 号、text=你的回复（简洁自然，≤300 字为宜）。")</ID>
+    <ID>MaxLineLength:AutonomousThinkingJob.kt$AutonomousThinkingJob$private val agentRuntime: dagger.Lazy&lt;AgentRuntime&gt;</ID>
+    <ID>MaxLineLength:BudgetGuard.kt$BudgetGuard$(if (prefs.getString(KEY_DAY, "") == today) prefs.getLong(KEY_DAY_TOKENS, 0) else 0) + usage.totalTokens</ID>
+    <ID>MaxLineLength:BudgetGuard.kt$BudgetGuard$(if (prefs.getString(KEY_MONTH, "") == month) prefs.getLong(KEY_MONTH_TOKENS, 0) else 0) + usage.totalTokens</ID>
+    <ID>MaxLineLength:CodeDevModule.kt$CodeDevModule$FunctionResult.failure("❌ $stage 未过（第 $round/${cfg.repairMaxRounds} 轮）：\n$detail\n——按错误修正后重调 develop_module（同名=更新）")</ID>
+    <ID>MaxLineLength:CodeDevModule.kt$CodeDevModule$if (!valid) return FunctionResult.failure("config_schema 不是合法 JSON 数组（应如 [{\"key\":...,\"type\":\"text|number|toggle\"}]）")</ID>
+    <ID>MaxLineLength:CodeDevModule.kt$CodeDevModule$sb.append("[${m.id}] ${stateIcon(m.state)} ${m.origin} 工具=$toolCount deps=${m.depsList().joinToString(",").ifBlank { "无" }}\n")</ID>
+    <ID>MaxLineLength:CodeDevModule.kt$CodeDevModule.Companion$"code 规范：① 头部可选单行 manifest：# ZERO_MANIFEST: {\"deps\":[pip包],\"termuxDeps\":[],\"configSchema\":[{\"key\",\"label\",\"type\":\"text|number|toggle\",\"default\",(\"min\",\"max\"),\"description\"}]}；"</ID>
+    <ID>MaxLineLength:CompileManager.kt$CompileManager$"compile_ok: $moduleId ${code.length}ch deps=${manifest.deps.size} configFields=${if (manifest.configSchema == "[]") 0 else "有"}"</ID>
+    <ID>MaxLineLength:CompileManager.kt$CompileManager$.</ID>
+    <ID>MaxLineLength:CompileManager.kt$CompileManager$deps = o.optJSONArray("deps")?.let { arr -&gt; (0 until arr.length()).map { arr.optString(it) } } ?: emptyList()</ID>
+    <ID>MaxLineLength:CompileManager.kt$CompileManager$listOf("-c", "tail -c 3000 ${TermuxBridge.TERMUX_PREFIX}/zero/logs/module_$moduleId.log 2&gt;/dev/null")</ID>
+    <ID>MaxLineLength:CompileManager.kt$CompileManager$termuxDeps = o.optJSONArray("termuxDeps")?.let { arr -&gt; (0 until arr.length()).map { arr.optString(it) } } ?: emptyList()</ID>
+    <ID>MaxLineLength:CompileManager.kt$CompileManager$val e = "pip install 失败（exit=$exit）: ${res?.optString("stderr")?.take(500) ?: "supervisor 无响应/超时（${timeoutS}s）"}"</ID>
+    <ID>MaxLineLength:LocalVoiceProvider.kt$LocalVoiceProvider$"first_sentence: ${android.os.SystemClock.elapsedRealtime() - t0}ms len=${sentence.length}"</ID>
+    <ID>MaxLineLength:LocalVoiceProvider.kt$LocalVoiceProvider$"mic_source_fallback: VOICE_COMMUNICATION 重建 ${silentReopenCount} 次仍静音 → 本会话降级 MIC 音源（AEC 失效，由 Barge-in 阈值+尾音守卫兜底）"</ID>
+    <ID>MaxLineLength:McpClientModule.kt$McpClientModule$"dyn_mount_start_failed: ${module.id} transport=$transport resp=${start?.toString()?.take(120)}"</ID>
+    <ID>MaxLineLength:McpSocketTransport.kt$McpSocketTransport$"socket_rpc_failed: name=$addressName method=$method ${e::class.java.simpleName}: ${e.message?.take(60)}"</ID>
+    <ID>MaxLineLength:ModelAssetManager.kt$ModelAssetManager.MeloPaths$data</ID>
+    <ID>MaxLineLength:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$"provider=${profile.id} model=${profile.modelId} msgs=${messages.size} tools=${functions.size} stream=true"</ID>
+    <ID>MaxLineLength:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$json.optJSONArray("choices")?.optJSONObject(0)?.optJSONObject("message")?.optString("content", "") ?: ""</ID>
+    <ID>MaxLineLength:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$safeDelta(delta, "content")?.let { trySend(StreamChunk(contentDelta = it, isFinal = false)) }</ID>
+    <ID>MaxLineLength:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$safeDelta(delta, "reasoning_content")?.let { trySend(StreamChunk(thinkingDelta = it, isFinal = false)) }</ID>
+    <ID>MaxLineLength:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$throw RuntimeException("${profile.displayName} ${resp.code}: ${json.optString("error", json.toString()).take(200)}")</ID>
+    <ID>MaxLineLength:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$trySend(StreamChunk(contentDelta = "[${profile.displayName} ${response.code}: $err]", isFinal = true))</ID>
+    <ID>MaxLineLength:ShizukuBridge.kt$ShizukuBridge$parameters = objSchema("package" to strParam("应用包名，如 com.android.settings"), required = listOf("package"))</ID>
+    <ID>MaxLineLength:ShizukuBridge.kt$ShizukuBridge$private suspend</ID>
+    <ID>MaxLineLength:SpeechRecognitionModule.kt$SpeechRecognitionModule$fun le32(off: Int, v: Int)</ID>
+    <ID>MaxLineLength:SpeechRecognitionModule.kt$SpeechRecognitionModule$out[12] = 'f'.code.toByte()</ID>
+    <ID>MaxLineLength:SpeechRecognitionModule.kt$SpeechRecognitionModule$out[36] = 'd'.code.toByte()</ID>
+    <ID>MaxLineLength:SpeechSynthesisModule.kt$SpeechSynthesisModule$"audioMs=${totalBytes / 2 * 1000 / MimoTtsClient.SAMPLE_RATE} total=${stats.totalMs}ms voice=${config.mimoVoice}"</ID>
+    <ID>MaxLineLength:SpeechSynthesisModule.kt$SpeechSynthesisModule$"cloud" to mapOf("type" to "boolean", "description" to "是否自动上传云端得 file_id（默认 true）")</ID>
+    <ID>MaxLineLength:SpeechSynthesisModule.kt$SpeechSynthesisModule$openAiClient</ID>
+    <ID>MaxLineLength:SpeechSynthesisModule.kt$SpeechSynthesisModule$while (android.os.SystemClock.elapsedRealtime() &lt; until &amp;&amp; !stopRequested.get()) delay(50)</ID>
+    <ID>MaxLineLength:SpeechSynthesisModule.kt$SpeechTtsConfig$"""{"engine":"$engine","mimoApiKeyRef":"$mimoApiKeyRef","mimoVoice":"$mimoVoice","meloSpeedPercent":$meloSpeedPercent}"""</ID>
+    <ID>MaxLineLength:SystemActionUserService.kt$SystemActionUserService$nx.toFloat()</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$"interval_seconds" to mapOf("type" to "number", "description" to "重复间隔秒（recurring=true 时生效）")</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$"time" to mapOf("type" to "string", "description" to "绝对时间(2026-08-22T11:00 或 11:00)或相对时间(+5m)")</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$PokeEvent("动态报点唤醒。\n${if (np.isNotEmpty()) "当前任务进度:\n$np" else "📝 记事本为空"}\n\n(检查任务状态)", metadata.id)</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$ReminderEntity(task.id, task.remark, task.triggerTimeMs, true, task.recurringMs)</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$SystemTickTask(id, TickTaskType.REMINDER, triggerMs, remark, isRecurring = recurring, recurringMs = intervalSec * 1000L)</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$chatBus.onPokeSend.emit(PokeEvent("⏰ 提醒 [${task.id}]: ${task.remark}", metadata.id, PokePriority.HIGH))</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$context.checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$private</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$systemBus.onScheduleTriggered.emit(ScheduleTriggeredEvent(task.automationId!!, tickMs, TriggerSource.HEARTBEAT))</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$val filter = android.content.IntentFilter(android.app.AlarmManager.ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED)</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$val multiplier = Math.pow(backoffMultiplier.toDouble(), minOf(continuousTimerCount, maxRetryCount).toDouble()).toInt()</ID>
+    <ID>MaxLineLength:SystemEventModule.kt$SystemEventModule$val triggerMs = parseTime(timeStr) ?: return FunctionResult.failure("无法解析时间: $timeStr (格式: ISO时间 或 +5m/+1h/+30s)")</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$"echo 'deb https://packages-cf.termux.dev/apt/termux-main/ stable main' &gt; $TERMUX_PREFIX/etc/apt/sources.list"</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$"linux_exec: exit=$exit out=${out.length}ch err=${err.length}ch timeout=${if (timedOut) "Y" else "N"} cmd=${cmd.take(50)}"</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$"run_command: path=${path.substringAfterLast('/')} args=${args.size} bg=$background cb=${onResult != null} started=$started"</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$awaitCommand(BASH, listOf("-c", "test -f $TERMUX_PREFIX/zero/.bootstrap_done"), timeoutMs = 10_000L)?.second == 0</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$if (!o.optBoolean("ok")) return@withContext unavailable("write 失败: ${o.optJSONObject("error")?.optString("error") ?: o}")</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$if (o.has("error")) return@withContext unavailable("read 错误: ${o.optJSONObject("error")?.optString("error")}")</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$o.optJSONObject("error")?.let { return@withContext unavailable("exec 错误: ${it.optString("error").take(60)}") }</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$trace(NodeType.SYSTEM_EVENT, "awake: installed=${isTermuxInstalled()} autoBootstrap=${cfg.autoBootstrapOnStart}")</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$trace(NodeType.SYSTEM_EVENT, "config_changed: autoBootstrap=${cfg.autoBootstrapOnStart} port=${cfg.supervisorPort}")</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$val marker = awaitCommand(BASH, listOf("-c", "test -f $TERMUX_PREFIX/zero/.bootstrap_done"), timeoutMs = 15_000L)</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$val script = "mkdir -p $TERMUX_PREFIX/zero/zero_sdk &amp;&amp; echo '$b64' | base64 -d &gt; $TERMUX_PREFIX/zero/zero_sdk/$assetName"</ID>
+    <ID>MaxLineLength:TermuxBridge.kt$TermuxBridge$val t3 = "proot-distro login debian -- bash -c 'export DEBIAN_FRONTEND=noninteractive &amp;&amp; apt update &amp;&amp; apt install -y python3 python3-pip git build-essential curl ffmpeg'"</ID>
+    <ID>MaxLineLength:TriggerHub.kt$TriggerHub$"notify_rejected: not_guard_context turnSource=${turn?.source} triggerId=${turn?.triggerId?.take(8)}"</ID>
+    <ID>MaxLineLength:TriggerHub.kt$TriggerHub.Companion$private</ID>
+    <ID>MaxLineLength:VisionModule.kt$VisionModule$"image_data" to mapOf("type" to "string", "description" to "Base64编码的图片(data:image/...;base64,...)")</ID>
+    <ID>MaxLineLength:VisionModule.kt$VisionModule$return@withContext FunctionResult.failure("Vision API error (${response.code}): ${responseBody.take(200)}")</ID>
+    <ID>MaxLineLength:WebSearchModule.kt$WebSearchModule$.</ID>
+    <ID>MaxLineLength:WebSearchModule.kt$WebSearchModule$return@withContext FunctionResult.failure("搜索API错误(${response.code}): ${response.body?.string()?.take(200)}")</ID>
+    <ID>MaxLineLength:WebSearchModule.kt$WebSearchModule$val reader = response.body?.charStream()?.buffered() ?: return@withContext FunctionResult.failure("Empty response")</ID>
+    <ID>MayBeConst:LocalVoiceProvider.kt$LocalVoiceProvider.Companion$private val CHUNK_SIZE = SAMPLE_RATE * BUFFER_MS / 1000</ID>
+    <ID>NestedBlockDepth:LocationModule.kt$LocationModule$private fun getCachedLocation(lm: LocationManager): Location?</ID>
+    <ID>NestedBlockDepth:McpClientModule.kt$McpClientModule$private suspend fun dynCrashWatchdog()</ID>
+    <ID>NestedBlockDepth:ModelAssetManager.kt$ModelAssetManager$private fun copyAssetDir(context: Context, assetPath: String, destDir: File)</ID>
+    <ID>NestedBlockDepth:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$private fun buildChatBody( profile: LlmProfile, sysPrompt: String?, msgs: List&lt;ChatMessage&gt;?, stream: Boolean, functions: List&lt;FunctionDefinition&gt;, adapter: LlmAdapter?, singleUserMessage: String? = null, ): JSONObject</ID>
+    <ID>NestedBlockDepth:SoftwareAec.kt$SoftwareAec$@Synchronized fun process(near: FloatArray): FloatArray</ID>
+    <ID>NestedBlockDepth:SpeechSynthesisModule.kt$SpeechSynthesisModule$private suspend fun speakStreamingLocked(sentences: kotlinx.coroutines.channels.Channel&lt;String&gt;): Boolean</ID>
+    <ID>NestedBlockDepth:SystemActionUserService.kt$SystemActionUserService$private fun injectSwipe(x1: Int, y1: Int, x2: Int, y2: Int, ms: Int): Boolean</ID>
+    <ID>NestedBlockDepth:SystemEventModule.kt$SystemEventModule$private suspend fun processDueTasks(tickMs: Long)</ID>
+    <ID>NestedBlockDepth:SystemEventModule.kt$SystemEventModule$private suspend fun restoreRemindersLocked()</ID>
+    <ID>NestedBlockDepth:TermuxBridge.kt$TermuxBridge$private fun healthViaSocket(): String?</ID>
+    <ID>NestedBlockDepth:TriggerHub.kt$TriggerHub$private suspend fun sseLoop()</ID>
+    <ID>ReturnCount:AutomationModule.kt$AutomationModule$private suspend fun createAutomation(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>ReturnCount:AutomationModule.kt$AutomationModule$private suspend fun getResults(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>ReturnCount:AutomationModule.kt$AutomationModule$private suspend fun manageAutomation(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>ReturnCount:AutomationModule.kt$AutomationModule$private suspend fun runAutomation( entity: AutomationEntity, autonomous: Boolean, ): String</ID>
+    <ID>ReturnCount:AutomationModule.kt$AutomationModule$private suspend fun runNow(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>ReturnCount:AutomationModule.kt$AutomationModule$private suspend fun updateAutomation(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>ReturnCount:AutomationModule.kt$JsonExtractor$fun extract(rawText: String): String?</ID>
+    <ID>ReturnCount:AutomationPlan.kt$RuleBasedTaskParser$fun parse(description: String): ExecutionPlan</ID>
+    <ID>ReturnCount:AutomationSchedulePolicy.kt$AutomationSchedulePolicy$fun derive(description: String): Pair&lt;String, String&gt;</ID>
+    <ID>ReturnCount:AutonomousThinkingJob.kt$AutonomousThinkingJob$fun onTrigger(event: TriggerEvent)</ID>
+    <ID>ReturnCount:CodeDevModule.kt$CodeDevModule$private suspend fun handleDevelop(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>ReturnCount:CodeDevModule.kt$CodeDevModule$private suspend fun handleToggle(args: Map&lt;String, Any?&gt;, enable: Boolean): FunctionResult</ID>
+    <ID>ReturnCount:CompileManager.kt$CompileManager$private fun parseManifest(code: String): ModuleManifest?</ID>
+    <ID>ReturnCount:CompileManager.kt$CompileManager$suspend fun compile( moduleId: String, code: String, ): CompileResult</ID>
+    <ID>ReturnCount:CompileManager.kt$CompileManager$suspend fun installDeps(deps: List&lt;String&gt;): InstallResult</ID>
+    <ID>ReturnCount:CompileManager.kt$CompileManager$suspend fun probe( moduleId: String, transport: String = "http", configJson: JSONObject? = null, probeTimeoutS: Int = 15, ): ProbeResult</ID>
+    <ID>ReturnCount:ContentExtractor.kt$ContentExtractor$private fun fetchUrl(url: String): String?</ID>
+    <ID>ReturnCount:ContentExtractor.kt$ContentExtractor$suspend fun searchWithFallback( query: String, llmSearchResult: String?, urls: List&lt;String&gt; ): String</ID>
+    <ID>ReturnCount:LocalVoiceProvider.kt$LocalVoiceProvider$override suspend fun start()</ID>
+    <ID>ReturnCount:LocalVoiceProvider.kt$LocalVoiceProvider$private fun isEchoOfSpeaking(compact: String): Boolean</ID>
+    <ID>ReturnCount:McpClientModule.kt$McpClientModule$private fun buildDynClient( clientKey: String, endpoint: String, ): McpClient?</ID>
+    <ID>ReturnCount:McpClientModule.kt$McpClientModule$private suspend fun addServer( name: String, url: String, apiKey: String?, ): FunctionResult</ID>
+    <ID>ReturnCount:McpClientModule.kt$McpClientModule$private suspend fun testConnection( url: String, apiKey: String?, ): FunctionResult</ID>
+    <ID>ReturnCount:McpTransport.kt$McpTransport$private fun parseResponse(raw: String, requestId: Int): JSONObject</ID>
+    <ID>ReturnCount:ScreenCaptureModule.kt$ScreenCaptureModule$private suspend fun captureScreenJpeg(): String?</ID>
+    <ID>ReturnCount:ScreenTextReader.kt$ScreenTextReader$fun captureCurrentScreen(maxChars: Int = 8000): ScreenSnapshot?</ID>
+    <ID>ReturnCount:SecureKeyStore.kt$SecureKeyStore$override fun getOrFallbackString( primaryKey: String, fallbackKey: String?, ): String?</ID>
+    <ID>ReturnCount:ShizukuBridge.kt$ShizukuBridge$fun bindIfReady()</ID>
+    <ID>ReturnCount:SpeechRecognitionModule.kt$SpeechRecognitionModule$fun processAudioChunk(samples: FloatArray, sampleRate: Int = SAMPLE_RATE): Pair&lt;String, Boolean&gt;?</ID>
+    <ID>ReturnCount:SpeechRecognitionModule.kt$SpeechRecognitionModule$private fun getRecognizer(): OnlineRecognizer?</ID>
+    <ID>ReturnCount:SpeechSynthesisModule.kt$SpeechSynthesisModule$private fun ensureMelo(): OfflineTts?</ID>
+    <ID>ReturnCount:SpeechSynthesisModule.kt$SpeechSynthesisModule$private suspend fun speakMimo(text: String): Boolean</ID>
+    <ID>ReturnCount:SystemActionUserService.kt$SystemActionUserService$private fun injectSwipe(x1: Int, y1: Int, x2: Int, y2: Int, ms: Int): Boolean</ID>
+    <ID>ReturnCount:SystemEventModule.kt$SystemEventModule$private fun parseTime(input: String): Long?</ID>
+    <ID>ReturnCount:SystemEventModule.kt$SystemEventModule$private fun postExactAlarmGuidance()</ID>
+    <ID>ReturnCount:SystemEventModule.kt$SystemEventModule$private fun setReminder(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>ReturnCount:SystemEventModule.kt$SystemEventModule$private suspend fun modifyReminder(args: Map&lt;String, Any?&gt;): FunctionResult</ID>
+    <ID>ReturnCount:TermuxBridge.kt$TermuxBridge$private suspend fun ensureWorkstation(): String?</ID>
+    <ID>ReturnCount:TermuxBridge.kt$TermuxBridge$suspend fun bootstrap(): Boolean</ID>
+    <ID>ReturnCount:TermuxBridge.kt$TermuxBridge$suspend fun ensureSupervisor(): Boolean</ID>
+    <ID>ReturnCount:TermuxBridge.kt$TermuxBridge$suspend fun healthCheck(): String?</ID>
+    <ID>ReturnCount:TriggerHub.kt$TriggerHub$fun fireMusicSchedule( payload: String, hint: String?, ): Boolean</ID>
+    <ID>ReturnCount:TriggerHub.kt$TriggerHub$fun fireSelfDrive( payload: String, reason: String, ): Boolean</ID>
+    <ID>ReturnCount:TriggerHub.kt$TriggerHub$private fun handleNotification( pkg: String, appName: String, title: String, content: String, )</ID>
+    <ID>ReturnCount:TriggerHub.kt$TriggerHub$private suspend fun handleSeamRequest(sock: java.net.Socket)</ID>
+    <ID>ReturnCount:TriggerHub.kt$TriggerHub$private suspend fun sendAutonomousNotify( title: String, message: String, ): FunctionResult</ID>
+    <ID>ReturnCount:UsageStatsModule.kt$UsageStatsModule$private fun appUsage(packageName: String): FunctionResult</ID>
+    <ID>ReturnCount:UsageStatsModule.kt$UsageStatsModule$private fun screenTime(period: String): FunctionResult</ID>
+    <ID>ReturnCount:VoiceActivityModule.kt$VoiceActivityModule$private fun getVad(): Vad?</ID>
+    <ID>SwallowedException:AutonomousThinkingJob.kt$AutonomousThinkingJob$e: Exception</ID>
+    <ID>SwallowedException:AutonomousThinkingJob.kt$AutonomousThinkingJob$e: kotlinx.coroutines.CancellationException</ID>
+    <ID>SwallowedException:McpClientModule.kt$McpClientModule$e: Exception</ID>
+    <ID>SwallowedException:ShizukuBridge.kt$ShizukuBridge$e: Exception</ID>
+    <ID>SwallowedException:SystemActionUserService.kt$SystemActionUserService$t: Throwable</ID>
+    <ID>SwallowedException:TriggerHub.kt$TriggerHub$e: Exception</ID>
+    <ID>ThrowsCount:McpSocketTransport.kt$McpSocketTransport$private fun readFrame(input: InputStream): ByteArray</ID>
+    <ID>TooGenericExceptionCaught:AgentRuntime.kt$AgentRuntime$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:AlarmModule.kt$AlarmModule$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:AutomationModule.kt$AutomationModule$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:AutonomousThinkingJob.kt$AutonomousThinkingJob$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:BudgetGuard.kt$BudgetGuard$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:CalendarModule.kt$CalendarModule$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:ExactAlarmReceiver.kt$ExactAlarmReceiver$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:LocalVoiceProvider.kt$LocalVoiceProvider$t: Throwable</ID>
+    <ID>TooGenericExceptionCaught:McpClient.kt$McpClient$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:McpClientModule.kt$McpClientModule$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:McpSocketTransport.kt$McpSocketTransport$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:NotificationModule.kt$NotificationModule$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:Scheduler.kt$Scheduler$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:ScreenCaptureModule.kt$ScreenCaptureModule$t: Throwable</ID>
+    <ID>TooGenericExceptionCaught:SecureKeyStore.kt$SecureKeyStore$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:ShizukuBridge.kt$ShizukuBridge$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:SpeechRecognitionModule.kt$SpeechRecognitionModule$t: Throwable</ID>
+    <ID>TooGenericExceptionCaught:SpeechSynthesisModule.kt$SpeechSynthesisModule$t: Throwable</ID>
+    <ID>TooGenericExceptionCaught:SystemActionUserService.kt$SystemActionUserService$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:SystemActionUserService.kt$SystemActionUserService$t: Throwable</ID>
+    <ID>TooGenericExceptionCaught:SystemEventModule.kt$SystemEventModule$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:SystemEventModule.kt$SystemEventModule$t: Throwable</ID>
+    <ID>TooGenericExceptionCaught:TermuxBridge.kt$TermuxBridge$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:TriggerHub.kt$TriggerHub$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:VoiceActivityModule.kt$VoiceActivityModule$t: Throwable</ID>
+    <ID>TooGenericExceptionThrown:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$throw RuntimeException("${profile.displayName} ${resp.code}: ${json.optString("error", json.toString()).take(200)}")</ID>
+    <ID>TooManyFunctions:AgentRuntime.kt$AgentRuntime : IZeroModule</ID>
+    <ID>TooManyFunctions:AutomationModule.kt$AutomationModule : IZeroModuleAgentJobToolContributor</ID>
+    <ID>TooManyFunctions:AutonomousThinkingJob.kt$AutonomousThinkingJob : AgentJob</ID>
+    <ID>TooManyFunctions:CalendarModule.kt$CalendarModule : IZeroModuleToolContributor</ID>
+    <ID>TooManyFunctions:CodeDevModule.kt$CodeDevModule : IZeroModuleToolContributor</ID>
+    <ID>TooManyFunctions:LlmProfileStore.kt$LlmProfileStore</ID>
+    <ID>TooManyFunctions:LocalVoiceProvider.kt$LocalVoiceProvider : RealtimeVoiceProvider</ID>
+    <ID>TooManyFunctions:LocationModule.kt$LocationModule : IZeroModuleToolContributor</ID>
+    <ID>TooManyFunctions:McpClientModule.kt$McpClientModule : IZeroModuleToolContributor</ID>
+    <ID>TooManyFunctions:ScreenCaptureModule.kt$ScreenCaptureModule : IZeroModuleToolContributor</ID>
+    <ID>TooManyFunctions:ScreenTextReader.kt$ScreenTextReader : IZeroModuleToolContributor</ID>
+    <ID>TooManyFunctions:ShizukuBridge.kt$ShizukuBridge : IZeroModuleToolContributor</ID>
+    <ID>TooManyFunctions:SpeechRecognitionModule.kt$SpeechRecognitionModule : IZeroModule</ID>
+    <ID>TooManyFunctions:SpeechSynthesisModule.kt$SpeechSynthesisModule : IZeroModuleToolContributor</ID>
+    <ID>TooManyFunctions:SystemActionUserService.kt$SystemActionUserService : Stub</ID>
+    <ID>TooManyFunctions:SystemEventModule.kt$SystemEventModule : IZeroModuleAgentJobToolContributor</ID>
+    <ID>TooManyFunctions:TermuxBridge.kt$TermuxBridge : IZeroModuleToolContributor</ID>
+    <ID>TooManyFunctions:TriggerHub.kt$TriggerHub : IZeroModuleToolContributor</ID>
+    <ID>TooManyFunctions:UsageStatsModule.kt$UsageStatsModule : IZeroModuleToolContributorITimedModule</ID>
+    <ID>TooManyFunctions:VisionModule.kt$VisionModule : IZeroModuleToolContributor</ID>
+    <ID>TooManyFunctions:VoiceActivityModule.kt$VoiceActivityModule : IZeroModule</ID>
+    <ID>TooManyFunctions:WebSearchModule.kt$WebSearchModule : IZeroModuleToolContributor</ID>
+    <ID>UnusedParameter:AgentRuntime.kt$AgentRuntime$source: String</ID>
+    <ID>UnusedParameter:ContentExtractor.kt$ContentExtractor$query: String</ID>
+    <ID>UnusedParameter:LocationModule.kt$LocationModule$source: String</ID>
+    <ID>UnusedPrivateMember:McpClientModule.kt$McpClientModule$private fun supGet(path: String): JSONObject?</ID>
+    <ID>UnusedPrivateProperty:AutomationModule.kt$ExecutionGuard$private var stepsExecuted = 0</ID>
+    <ID>UnusedPrivateProperty:BudgetGuard.kt$BudgetGuard$val monthTokens = if (prefs.getString(KEY_MONTH, "") == month) prefs.getLong(KEY_MONTH_TOKENS, 0) else 0</ID>
+    <ID>UnusedPrivateProperty:CalendarModule.kt$CalendarModule$val end = cursor.getLong(4)</ID>
+    <ID>UnusedPrivateProperty:CodeDevModule.kt$CodeDevModule$@ApplicationContext private val appContext: Context</ID>
+    <ID>UnusedPrivateProperty:ContentExtractor.kt$ContentExtractor.Companion$/** Readability: 最大链接文本比（超过此值视为导航/链接列表） */ private const val MAX_LINK_RATIO = 0.5</ID>
+    <ID>UnusedPrivateProperty:ContentExtractor.kt$ContentExtractor.Companion$/** Readability: 最小文本密度阈值 */ private const val MIN_TEXT_DENSITY = 0.25</ID>
+    <ID>UnusedPrivateProperty:ContentExtractor.kt$ContentExtractor.Companion$private const val MAX_REDIRECTS = 3</ID>
+    <ID>UnusedPrivateProperty:ScreenCaptureModule.kt$ScreenCaptureModule$@ApplicationContext private val context: Context</ID>
+    <ID>UseCheckOrError:McpClient.kt$McpClient$throw IllegalStateException("MCP $method 错误 [$code]: $message")</ID>
+    <ID>UseCheckOrError:McpSocketTransport.kt$McpSocketTransport$throw IllegalStateException("MCP socket 响应非 JSON-RPC 结构")</ID>
+    <ID>UseCheckOrError:McpSocketTransport.kt$McpSocketTransport$throw IllegalStateException("MCP socket 对端关闭（帧体不完整 $off/$len）")</ID>
+    <ID>UseCheckOrError:McpSocketTransport.kt$McpSocketTransport$throw IllegalStateException("MCP socket 对端关闭（帧头不完整）")</ID>
+    <ID>UseCheckOrError:McpSocketTransport.kt$McpSocketTransport$throw IllegalStateException("MCP socket 帧长异常: $len")</ID>
+    <ID>UseCheckOrError:McpSocketTransport.kt$McpSocketTransport$throw IllegalStateException("MCP socket 请求超帧限 ${payload.size}B")</ID>
+    <ID>UseCheckOrError:McpTransport.kt$McpTransport$throw IllegalStateException("MCP HTTP ${resp.code}: $err")</ID>
+    <ID>UseCheckOrError:McpTransport.kt$McpTransport$throw IllegalStateException("MCP 响应解析失败（非 JSON 且 SSE 流中无匹配 ID=$requestId 的响应）")</ID>
+    <ID>UseCheckOrError:McpTransport.kt$McpTransport$throw IllegalStateException("MCP 空响应体")</ID>
+    <ID>UseCheckOrError:MimoTtsClient.kt$MimoTtsClient$throw IllegalStateException("MiMo HTTP ${resp.code}: $err")</ID>
+    <ID>UseCheckOrError:MimoTtsClient.kt$MimoTtsClient$throw IllegalStateException("MiMo 空响应体")</ID>
+    <ID>UseCheckOrError:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$throw IllegalStateException("${profile.displayName} API Key 未配置")</ID>
+    <ID>UseCheckOrError:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$throw IllegalStateException("ASR HTTP ${resp.code}: $err")</ID>
+    <ID>UseCheckOrError:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$throw IllegalStateException("ASR 空响应体")</ID>
+    <ID>UseCheckOrError:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$throw IllegalStateException("MiMo HTTP ${resp.code}: $err")</ID>
+    <ID>UseCheckOrError:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$throw IllegalStateException("MiMo 空响应体")</ID>
+    <ID>UseCheckOrError:OpenAiCompatibleClient.kt$OpenAiCompatibleClient$throw IllegalStateException("audio_segment_too_large: b64KB=${b64.length / 1024} (MiMo 10MB 限)")</ID>
+    <ID>UseCheckOrError:SystemActionUserService.kt$SystemActionUserService$throw IllegalStateException("$action failed (exit=$exit): ${out.take(200)}")</ID>
+    <ID>WildcardImport:AgentRuntime.kt$import com.zero.v2.core.moduleapi.*</ID>
+    <ID>WildcardImport:AutomationModule.kt$import com.zero.v2.core.moduleapi.*</ID>
+    <ID>WildcardImport:NotificationModule.kt$import com.zero.v2.core.moduleapi.*</ID>
+    <ID>WildcardImport:Scheduler.kt$import com.zero.v2.core.moduleapi.*</ID>
+    <ID>WildcardImport:ScreenTextReader.kt$import com.zero.v2.core.moduleapi.*</ID>
+    <ID>WildcardImport:SystemEventModule.kt$import com.zero.v2.core.common.*</ID>
+    <ID>WildcardImport:SystemEventModule.kt$import com.zero.v2.core.moduleapi.*</ID>
+    <ID>WildcardImport:UsageStatsModule.kt$import com.zero.v2.core.moduleapi.*</ID>
+    <ID>WildcardImport:VisionModule.kt$import com.zero.v2.core.moduleapi.*</ID>
+    <ID>WildcardImport:WebSearchModule.kt$import com.zero.v2.core.moduleapi.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

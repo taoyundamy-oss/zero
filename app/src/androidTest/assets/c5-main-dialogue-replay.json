@@ -1,0 +1,255 @@
+[
+  {
+    "id": "c01",
+    "body": "我打算周六去把储藏室的灯换掉，先看看新灯有没有货。如果商店缺货就推迟，现在还没换。",
+    "arguments": [
+      {
+        "source_id": "71750611ade19d27fa4bcf8179e96f5971599bcf75d15d0d7a215f04c0115be6",
+        "content": "用户计划周六去换储藏室的灯，需要先确认新灯是否有货，如果缺货则推迟更换，目前灯尚未更换。",
+        "quote": "我打算周六去把储藏室的灯换掉，先看看新灯有没有货。如果商店缺货就推迟，现在还没换。",
+        "type": "EVENT",
+        "basis": "EXPLICIT",
+        "claim_key": "储藏室灯更换计划",
+        "occurred_at": 100
+      }
+    ]
+  },
+  {
+    "id": "c02",
+    "body": "维修师傅说窗框可能是受潮变形了。我只看到了关窗很费劲，原因还没检查。",
+    "arguments": [
+      {
+        "source_id": "eae1b11d1eac43c4dba261e88c6e4d56ed9aa923a7407c0650e813d150fa9769",
+        "content": "维修师傅说窗框可能是受潮变形了。我只看到了关窗很费劲，原因还没检查。",
+        "quote": "维修师傅说窗框可能是受潮变形了。我只看到了关窗很费劲，原因还没检查。",
+        "type": "EVENT",
+        "basis": "EXPLICIT",
+        "claim_key": "窗框关不上原因未确定",
+        "occurred_at": 100
+      }
+    ]
+  },
+  {
+    "id": "c03",
+    "body": "以后整理我的采购清单，请一直把不能买的东西单列一栏，不要混进待买清单。",
+    "arguments": [
+      {
+        "source_id": "08af4911b244ca509f61e0599fee48cb6fe4c7d1d529e22d839ce86e292e9ab5",
+        "content": "整理采购清单时，不能买的东西应单列一栏，不要混进待买清单。",
+        "quote": "以后整理我的采购清单，请一直把不能买的东西单列一栏，不要混进待买清单。",
+        "type": "DIRECTIVE",
+        "basis": "EXPLICIT",
+        "claim_key": "采购清单中不能买的东西的处理方式",
+        "scope": "个人采购清单管理",
+        "valid_from": 100
+      },
+      {
+        "source_id": "08af4911b244ca509f61e0599fee48cb6fe4c7d1d529e22d839ce86e292e9ab5",
+        "content": "整理采购清单时，不能买的东西应单列一栏，不要混进待买清单。",
+        "quote": "以后整理我的采购清单，请一直把不能买的东西单列一栏，不要混进待买清单。",
+        "type": "DIRECTIVE",
+        "basis": "EXPLICIT",
+        "claim_key": "采购清单中不能买的东西的处理方式",
+        "scope": "个人采购清单管理",
+        "valid_from": 100
+      },
+      {
+        "source_id": "08af4911b244ca509f61e0599fee48cb6fe4c7d1d529e22d839ce86e292e9ab5",
+        "content": "整理采购清单时，不能买的东西应单列一栏，不要混进待买清单。",
+        "quote": "以后整理我的采购清单，请一直把不能买的东西单列一栏，不要混进待买清单。",
+        "type": "DIRECTIVE",
+        "basis": "EXPLICIT",
+        "claim_key": "采购清单中不能买的东西的处理方式",
+        "scope": "个人采购清单管理",
+        "valid_from": 100
+      },
+      {
+        "source_id": "08af4911b244ca509f61e0599fee48cb6fe4c7d1d529e22d839ce86e292e9ab5",
+        "content": "整理采购清单时，不能买的东西应单列一栏，不要混进待买清单。",
+        "quote": "以后整理我的采购清单，请一直把不能买的东西单列一栏，不要混进待买清单。",
+        "type": "DIRECTIVE",
+        "basis": "EXPLICIT",
+        "claim_key": "采购清单中不能买的东西的处理方式",
+        "scope": "个人采购清单管理",
+        "valid_from": 100
+      },
+      {
+        "source_id": "08af4911b244ca509f61e0599fee48cb6fe4c7d1d529e22d839ce86e292e9ab5",
+        "content": "整理采购清单时，不能买的东西应单列一栏，不要混进待买清单。",
+        "quote": "以后整理我的采购清单，请一直把不能买的东西单列一栏，不要混进待买清单。",
+        "type": "DIRECTIVE",
+        "basis": "EXPLICIT",
+        "claim_key": "采购清单中不能买的东西的处理方式",
+        "scope": "个人采购清单管理",
+        "valid_from": 100
+      },
+      {
+        "source_id": "08af4911b244ca509f61e0599fee48cb6fe4c7d1d529e22d839ce86e292e9ab5",
+        "content": "整理采购清单时，不能买的东西应单列一栏，不要混进待买清单。",
+        "quote": "以后整理我的采购清单，请一直把不能买的东西单列一栏，不要混进待买清单。",
+        "type": "DIRECTIVE",
+        "basis": "EXPLICIT",
+        "claim_key": "采购清单中不能买的东西的处理方式",
+        "scope": "个人采购清单管理",
+        "valid_from": 100
+      },
+      {
+        "source_id": "08af4911b244ca509f61e0599fee48cb6fe4c7d1d529e22d839ce86e292e9ab5",
+        "content": "整理采购清单时，不能买的东西应单列一栏，不要混进待买清单。",
+        "quote": "以后整理我的采购清单，请一直把不能买的东西单列一栏，不要混进待买清单。",
+        "type": "DIRECTIVE",
+        "basis": "EXPLICIT",
+        "claim_key": "采购清单中不能买的东西的处理方式",
+        "scope": "个人采购清单管理",
+        "valid_from": 100
+      }
+    ]
+  },
+  {
+    "id": "c04",
+    "body": "一般我选没有香味的洗衣液，闻到很浓的香味会不舒服。出差临时借用的那次不代表我改了偏好。",
+    "arguments": [
+      {
+        "source_id": "1814a62d0884694f8b4c3a60b7320e9bd60b4832b5f1dce37cfeb33007307cca",
+        "content": "用户平时倾向于选择没有香味的洗衣液，因为闻到很浓的香味会不舒服。",
+        "quote": "一般我选没有香味的洗衣液，闻到很浓的香味会不舒服。",
+        "type": "PREFERENCE",
+        "basis": "EXPLICIT",
+        "claim_key": "洗衣液香味偏好",
+        "importance": 0.8
+      }
+    ]
+  },
+  {
+    "id": "c05",
+    "body": "朋友小杨下个月可能搬到海边。我自己的住处没有变。",
+    "arguments": [
+      {
+        "source_id": "485d266521c8d6f83dfa3204a5fd1d41c8f4c82fae5e63b15a31dbd4c080da0d",
+        "content": "朋友小杨下个月可能搬到海边。我自己的住处没有变。",
+        "quote": "朋友小杨下个月可能搬到海边。我自己的住处没有变。",
+        "type": "EVENT",
+        "basis": "EXPLICIT",
+        "claim_key": "朋友小杨搬家",
+        "occurred_at": 100
+      },
+      {
+        "source_id": "485d266521c8d6f83dfa3204a5fd1d41c8f4c82fae5e63b15a31dbd4c080da0d",
+        "content": "我自己的住处没有变。",
+        "quote": "我自己的住处没有变。",
+        "type": "FACT",
+        "basis": "EXPLICIT",
+        "claim_key": "用户住处",
+        "occurred_at": 100
+      }
+    ]
+  },
+  {
+    "id": "c06",
+    "body": "周五先登记领钥匙，随后在一楼开碰头会。这两项是安排的先后顺序，没有说领不到钥匙会议就取消。",
+    "arguments": [
+      {
+        "source_id": "6ec915513c5b80c997ee96b7c40594064f98560154e96b21515561fb33fc34d6",
+        "content": "周五先登记领钥匙，随后在一楼开碰头会。这两项是安排的先后顺序，没有说领不到钥匙会议就取消。",
+        "quote": "周五先登记领钥匙，随后在一楼开碰头会。这两项是安排的先后顺序，没有说领不到钥匙会议就取消。",
+        "type": "EVENT",
+        "basis": "EXPLICIT",
+        "claim_key": "会议安排",
+        "occurred_at": 100
+      }
+    ]
+  },
+  {
+    "id": "c07",
+    "body": "旧记录写我用黑色笔记本，那已经不对了。这周开始我换成灰色的，黑色那台交还给单位了。",
+    "arguments": [
+      {
+        "source_id": "f4490c9411fb0ec04133e8553180078ce12c95a647dadcfd9680ed3a46dfca36",
+        "content": "用户目前使用灰色笔记本，黑色笔记本已交还给单位。",
+        "quote": "旧记录写我用黑色笔记本，那已经不对了。这周开始我换成灰色的，黑色那台交还给单位了。",
+        "type": "FACT",
+        "basis": "EXPLICIT",
+        "claim_key": "笔记本颜色",
+        "occurred_at": 100
+      }
+    ]
+  },
+  {
+    "id": "c08",
+    "body": "室内植物的记录：今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。今天只记下叶片数量，尚未检查土壤。结尾补充：只有确认土壤已经干透才浇水，不能仅凭叶片下垂就浇水，今天没有浇过。",
+    "arguments": [
+      {
+        "source_id": "ce383f387f902b50981716dca36f9bf8736cf92dbfd848bce339b6ad0cd91bbd",
+        "content": "今天只记下叶片数量，尚未检查土壤。",
+        "quote": "今天只记下叶片数量，尚未检查土壤。",
+        "type": "EVENT",
+        "basis": "EXPLICIT",
+        "claim_key": "室内植物检查状态",
+        "occurred_at": 100
+      },
+      {
+        "source_id": "ce383f387f902b50981716dca36f9bf8736cf92dbfd848bce339b6ad0cd91bbd",
+        "content": "只有确认土壤已经干透才浇水，不能仅凭叶片下垂就浇水，今天没有浇过。",
+        "quote": "只有确认土壤已经干透才浇水，不能仅凭叶片下垂就浇水，今天没有浇过。",
+        "type": "DIRECTIVE",
+        "basis": "EXPLICIT",
+        "claim_key": "室内植物浇水规则",
+        "valid_from": 100
+      },
+      {
+        "source_id": "ce383f387f902b50981716dca36f9bf8736cf92dbfd848bce339b6ad0cd91bbd",
+        "content": "今天没有浇过室内植物。",
+        "quote": "今天没有浇过。",
+        "type": "FACT",
+        "basis": "EXPLICIT",
+        "claim_key": "室内植物浇水状态",
+        "occurred_at": 100
+      },
+      {
+        "source_id": "ce383f387f902b50981716dca36f9bf8736cf92dbfd848bce339b6ad0cd91bbd",
+        "content": "今天只记下叶片数量，尚未检查土壤。",
+        "quote": "今天只记下叶片数量，尚未检查土壤。",
+        "type": "EVENT",
+        "basis": "EXPLICIT",
+        "claim_key": "室内植物检查状态",
+        "occurred_at": 100
+      },
+      {
+        "source_id": "ce383f387f902b50981716dca36f9bf8736cf92dbfd848bce339b6ad0cd91bbd",
+        "content": "今天只记下叶片数量，尚未检查土壤。",
+        "quote": "今天只记下叶片数量，尚未检查土壤。",
+        "type": "EVENT",
+        "basis": "EXPLICIT",
+        "claim_key": "室内植物检查状态",
+        "occurred_at": 100
+      },
+      {
+        "source_id": "ce383f387f902b50981716dca36f9bf8736cf92dbfd848bce339b6ad0cd91bbd",
+        "content": "今天只记下叶片数量，尚未检查土壤。",
+        "quote": "今天只记下叶片数量，尚未检查土壤。",
+        "type": "EVENT",
+        "basis": "EXPLICIT",
+        "claim_key": "室内植物检查状态",
+        "occurred_at": 100
+      },
+      {
+        "source_id": "ce383f387f902b50981716dca36f9bf8736cf92dbfd848bce339b6ad0cd91bbd",
+        "content": "今天只记下叶片数量，尚未检查土壤。",
+        "quote": "今天只记下叶片数量，尚未检查土壤。",
+        "type": "EVENT",
+        "basis": "EXPLICIT",
+        "claim_key": "室内植物检查状态",
+        "occurred_at": 100
+      },
+      {
+        "source_id": "ce383f387f902b50981716dca36f9bf8736cf92dbfd848bce339b6ad0cd91bbd",
+        "content": "今天只记下叶片数量，尚未检查土壤。",
+        "quote": "今天只记下叶片数量，尚未检查土壤。",
+        "type": "EVENT",
+        "basis": "EXPLICIT",
+        "claim_key": "室内植物检查状态",
+        "occurred_at": 100
+      }
+    ]
+  }
+]

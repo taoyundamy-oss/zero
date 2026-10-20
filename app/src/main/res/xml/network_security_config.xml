@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 本地离线 LLM 节点（llama-server @ :8080，D:\AI）明文 HTTP 放行——范围限定 domain-config，
+     不全局放开（全局 usesCleartextTraffic 禁用，E1 教训：曾全局开后随 HTTPS 上线移除）。
+     拓扑：A 模拟器=10.0.2.2 / B 真机 LAN=192.0.2.50（PC 实测 IPv4）/ C 同机=127.0.0.1。
+     PC IP 变更时同步更新本文件（或日后迁 HTTPS 自签 + trust-anchors，见 D:\AI\安卓端网络放行.md §5b）。 -->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.0.2.2</domain>
+        <domain includeSubdomains="false">192.0.2.50</domain>
+        <domain includeSubdomains="false">127.0.0.1</domain>
+    </domain-config>
+</network-security-config>

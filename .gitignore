@@ -1,0 +1,41 @@
+# Local state and private evidence
+.gradle*/
+.kotlin/
+.idea/
+.vscode/
+.android/
+.test_tmp/
+build/
+**/build/
+local.properties
+artifacts/
+backups/
+.vendor-cache/
+__pycache__/
+*.pyc
+*.log
+*.apk
+*.aab
+*.db
+*.db-wal
+*.db-shm
+*.sqlite*
+.env
+.env.*
+!.env.example
+*.pem
+*.jks
+*.keystore
+*.p12
+# Verified runtime dependencies are downloaded, not committed
+services/libs/
+services/src/main/jniLibs/
+app/src/main/assets/models/
+services/src/main/assets/models/
+*.onnx
+*.bin
+# Login and device captures
+*qr*.png
+*.iml
+.DS_Store
+Thumbs.db

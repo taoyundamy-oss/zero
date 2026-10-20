@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  U1（视觉规范）：Zero 通知小图标——24dp 纯白线形（系统着色；通知小图标必须纯
+  alpha 通道，禁止彩色/adaptive）。几何=启动图标同款 motif 缩放：右上开口环 + 右上方块。
+  （108dp 前景 ×2/9 缩放至 24dp；stroke 微调 2.0 保小尺寸可读）
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- "0" 环（右上开口）——108dp 前景 ×2/9 缩放 -->
+    <path
+        android:pathData="M14.07,7.58 A4.89,4.89 0,1 0,16.24 9.56"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round" />
+
+    <!-- 右上偏置实心方块（缩放） -->
+    <path
+        android:pathData="M15.44,6.89 L16.56,6.89 Q16.89,6.89 16.89,7.22 L16.89,8.33 Q16.89,8.67 16.56,8.67 L15.44,8.67 Q15.11,8.67 15.11,8.33 L15.11,7.22 Q15.11,6.89 15.44,6.89 Z"
+        android:fillColor="#FFFFFFFF" />
+</vector>

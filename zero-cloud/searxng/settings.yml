@@ -1,0 +1,76 @@
+# SearXNG Settings — Zero Cloud 定制（E16 定稿版）
+# 基线：use_default_settings: true + 显式启用三引擎（已验证可用）
+# 降噪：显式禁用观测到的大陆不可达默认引擎（unresponsive 实名匹配）
+# 兜底：outgoing.request_timeout=8s——漏网慢引擎不再拖住查询
+use_default_settings: true
+
+server:
+  secret_key: ""  # Required SEARXNG_SECRET is injected by Compose; no shared key.
+  bind_address: "0.0.0.0"
+  port: 8080
+  limiter: false
+
+search:
+  safe_search: 0
+  autocomplete: ""
+  default_lang: "zh-CN"
+  formats:
+    - html
+    - json
+
+outgoing:
+  request_timeout: 8.0
+
+engines:
+  # ── Tier 1：国内可达（D87）──
+  - name: bing
+    engine: bing
+    shortcut: bi
+    weight: 1.0
+    disabled: false
+    send_accept_language_header: true
+
+  - name: sogou
+    engine: sogou
+    shortcut: sg
+    weight: 0.5
+    disabled: false
+
+  - name: 360search
+    engine: 360search
+    shortcut: so
+    weight: 0.8
+    disabled: false
+
+  # ── Tier 1.5：境外但大陆数据中心可达（E17 实测：yandex 稳定可用）──
+  - name: yandex
+    engine: yandex
+    shortcut: yx
+    weight: 1.2
+    disabled: false
+
+  - name: mojeek
+    engine: mojeek
+    disabled: true  # 实测 0 结果，弃用
+
+  # ── 禁用：大陆不可达/被墙（unresponsive 实测名单）──
+  - name: google
+    disabled: true
+  - name: google cse
+    disabled: true
+  - name: duckduckgo
+    disabled: true
+  - name: brave
+    disabled: true
+  - name: startpage
+    disabled: true
+  - name: wikipedia
+    disabled: true
+  - name: wikidata
+    disabled: true
+  - name: qwant
+    disabled: true
+  - name: marginalia
+    disabled: true
+  - name: baidu
+    disabled: true

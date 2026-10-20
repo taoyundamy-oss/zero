@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- v3.4 (D40): 精确闹钟 — 准点提醒/定时自动化（后台冻结下仍触发） -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <application>
+        <receiver
+            android:name="com.zero.v2.services.agent.ExactAlarmReceiver"
+            android:exported="false" />
+    </application>
+</manifest>

@@ -1,0 +1,91 @@
+{
+  "format": 1,
+  "assets": [
+    {
+      "name": "sherpa-onnx-v1.12.28.jar",
+      "kind": "raw",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.12.28/sherpa-onnx-v1.12.28.jar",
+      "sha256": "cf1fc70bccfa2b7737a326d37c021cc8e03e5134d975c4b13978babd4e43f5ae",
+      "size": 154846,
+      "files": [
+        {
+          "target": "services/libs/sherpa-onnx.jar",
+          "sha256": "cf1fc70bccfa2b7737a326d37c021cc8e03e5134d975c4b13978babd4e43f5ae"
+        }
+      ]
+    },
+    {
+      "name": "sherpa-onnx-v1.12.28-android.tar.bz2",
+      "kind": "tar",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.12.28/sherpa-onnx-v1.12.28-android.tar.bz2",
+      "sha256": "8a7342a6b2081baf93d85e1e4e5578e9d269e6bbeae2d749d978a1f15ae6278c",
+      "size": 36761241,
+      "files": [
+        {
+          "target": "services/src/main/jniLibs/arm64-v8a/libonnxruntime.so",
+          "member": "./jniLibs/arm64-v8a/libonnxruntime.so",
+          "sha256": "c7c0e6b0f9c364a4df4bfc9a3a3576b691899e96f4d9beb60f3b3a7ce4bf572c"
+        },
+        {
+          "target": "services/src/main/jniLibs/arm64-v8a/libsherpa-onnx-c-api.so",
+          "member": "./jniLibs/arm64-v8a/libsherpa-onnx-c-api.so",
+          "sha256": "c2349269c9c2bf9a5eb990cd6f858bf88b6f183811e3dd251e113c8a179c3359"
+        },
+        {
+          "target": "services/src/main/jniLibs/arm64-v8a/libsherpa-onnx-cxx-api.so",
+          "member": "./jniLibs/arm64-v8a/libsherpa-onnx-cxx-api.so",
+          "sha256": "87fc33324b68a62f83b88ec3cd3da042e96687dd522a58e775a50aa395350708"
+        },
+        {
+          "target": "services/src/main/jniLibs/arm64-v8a/libsherpa-onnx-jni.so",
+          "member": "./jniLibs/arm64-v8a/libsherpa-onnx-jni.so",
+          "sha256": "1940da27e65a82708df6dce6514d4619da7a5962f2b1f40de7caccba29ae6a00"
+        },
+        {
+          "target": "services/src/main/jniLibs/x86_64/libonnxruntime.so",
+          "member": "./jniLibs/x86_64/libonnxruntime.so",
+          "sha256": "1eda995a3d24e48492aa2e671f4b69624d32a7c227dc7e0904c433e83df1aa7e"
+        },
+        {
+          "target": "services/src/main/jniLibs/x86_64/libsherpa-onnx-c-api.so",
+          "member": "./jniLibs/x86_64/libsherpa-onnx-c-api.so",
+          "sha256": "6e977b79c4475780ae5905ba25bed09507588a54d1c1d60f729bf225e948a833"
+        },
+        {
+          "target": "services/src/main/jniLibs/x86_64/libsherpa-onnx-cxx-api.so",
+          "member": "./jniLibs/x86_64/libsherpa-onnx-cxx-api.so",
+          "sha256": "74e4a3b2cbdde535cc233ef8844657a44d596cc0dfec5da50ae33d362f8a8084"
+        },
+        {
+          "target": "services/src/main/jniLibs/x86_64/libsherpa-onnx-jni.so",
+          "member": "./jniLibs/x86_64/libsherpa-onnx-jni.so",
+          "sha256": "c5c7a2f6cf983fab8a21a062df4b10236e4a7a631e8acc0e90b85c2d84c04dfd"
+        }
+      ]
+    },
+    {
+      "name": "onnxruntime-android-1.17.1.aar",
+      "kind": "zip",
+      "url": "https://repo.maven.apache.org/maven2/com/microsoft/onnxruntime/onnxruntime-android/1.17.1/onnxruntime-android-1.17.1.aar",
+      "sha256": "35fc867b4d50942da3058f196d74c5669b4b34228794702cf15a05a4bd0b77c4",
+      "size": 23970257,
+      "files": [
+        {
+          "target": "services/libs/onnxruntime-1.17.1.jar",
+          "member": "classes.jar",
+          "sha256": "2cdf4a2884360520cc241ccff9343721b3d275685bf754d46acdbf4994f99204"
+        },
+        {
+          "target": "services/src/main/jniLibs/arm64-v8a/libonnxruntime4j_jni.so",
+          "member": "jni/arm64-v8a/libonnxruntime4j_jni.so",
+          "sha256": "8fc7e20fba98c5601582ae14c8c7fed194644856fc315d6184ed1776c50d9272"
+        },
+        {
+          "target": "services/src/main/jniLibs/x86_64/libonnxruntime4j_jni.so",
+          "member": "jni/x86_64/libonnxruntime4j_jni.so",
+          "sha256": "3b15d098b51e44f0e3809b3ef4d72e51a2649f8fe8b06e373dafb58a31b72c8d"
+        }
+      ]
+    }
+  ]
+}

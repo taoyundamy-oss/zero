@@ -1,0 +1,256 @@
+version: "3.9"
+
+services:
+  # ═══ Gateway (MCP + Auth + 路由) — core profile ═══
+  gateway:
+    build:
+      context: .
+      dockerfile: gateway/Dockerfile
+    container_name: zero-gateway
+    expose:
+      - "8000"
+    mem_limit: 300m
+    environment:
+      - ZERO_CLOUD_TOKEN=${ZERO_CLOUD_TOKEN}
+      - SEARXNG_URL=http://searxng:8080
+      - REDIS_URL=redis://redis:6379/0
+      - CRAWL4AI_URL=http://crawl4ai:11235
+      - CRAWL4AI_TOKEN=${ZERO_CLOUD_TOKEN}
+      - GOTENBERG_URL=http://gotenberg:3000
+      - WECLAWBOT_URL=http://weclawbot:26322   # C4.1'：实际端口（原 18011 系设计误记）
+      - OPENCLAW_SHIM_URL=http://openclaw:19980   # E1.2：oc-shim 集成面（im_send/im_read）
+      - OPENCLAW_GATEWAY_TOKEN=${OPENCLAW_GATEWAY_TOKEN}   # E1.2：shim 认证（与 openclaw 网关同 token）
+      - PROXY_URL=${PROXY_URL:-}
+      - ZERO_CLOUD_PUBLIC_BASE=https://203.0.113.10:8443
+      - MAX_FILE_SIZE_MB=2048
+      - MAX_TOTAL_STORAGE_GB=20
+      - MAX_CONCURRENT_TASKS=3
+      - FILE_TTL_HOURS=24
+    volumes:
+      - /data/zero:/data/zero
+      - ./weclawbot/config:/zero-weclawbot-config:ro   # C4.1'：读 auth.json（bot_id/api_token；token 不出网）
+    depends_on:
+      - redis
+    profiles: ["core", "full"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request as u; u.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ═══ nginx (HTTPS 反代 + 限流) — core profile（D104：Day 1 基线）═══
+  nginx:
+    build: ./nginx
+    container_name: zero-nginx
+    ports:
+      - "8443:8443"
+    volumes:
+      - ./nginx/certs:/etc/nginx/certs:ro
+    depends_on:
+      - gateway
+    profiles: ["core", "full"]
+    restart: unless-stopped
+
+  # ═══ Redis (队列+缓存+任务状态) — core profile ═══
+  redis:
+    image: redis:7-alpine
+    container_name: zero-redis
+    command: redis-server --appendonly yes --appendfsync everysec
+    volumes:
+      - redis-data:/data
+    profiles: ["core", "full"]
+    restart: unless-stopped
+
+  # ═══ SearXNG (搜索聚合) — core profile ═══
+  searxng:
+    image: searxng/searxng:latest
+    container_name: zero-searxng
+    volumes:
+      - ./searxng:/etc/searxng
+    environment:
+      - SEARXNG_BASE_URL=http://localhost:8080/
+      - SEARXNG_SECRET=${SEARXNG_SECRET:?Run scripts/prepare_env.py first}
+    profiles: ["core", "full"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:8080/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # ═══ Crawl4AI (全文提取+反爬) — full profile ═══
+  crawl4ai:
+    image: unclecode/crawl4ai:latest
+    container_name: zero-crawl4ai
+    environment:
+      # 镜像安全设计：设 token 才绑 0.0.0.0（否则仅回环）；内部端口 11235
+      - CRAWL4AI_API_TOKEN=${ZERO_CLOUD_TOKEN}
+      # 注意：勿设 PLAYWRIGHT_BROWSERS_PATH 指向空卷——镜像自带浏览器，覆盖路径会导致崩溃循环
+    shm_size: '1gb'
+    mem_limit: 1g
+    profiles: ["full"]
+    restart: unless-stopped
+
+  # ═══ Gotenberg (Office→PDF) — full profile ═══
+  gotenberg:
+    image: gotenberg/gotenberg:8
+    container_name: zero-gotenberg
+    # api-timeout 默认 30s——大文档放宽到 90s（worker 侧 httpx read 110s 兜底）
+    command: ["gotenberg", "--api-timeout=90s"]
+    mem_limit: 600m
+    profiles: ["full"]
+    restart: unless-stopped
+
+  # ═══ Celery Worker (异步任务) — full profile ═══
+  worker:
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    container_name: zero-worker
+    command: celery -A celery_app worker --loglevel=info --concurrency=2 -Q fast,cpu,download,sandbox
+    mem_limit: 600m   # Z12：C3.5 起 +tesseract/ocrmypdf（实测峰值后回归）
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - SEARXNG_URL=http://searxng:8080
+      - CRAWL4AI_URL=http://crawl4ai:11235
+      - CRAWL4AI_TOKEN=${ZERO_CLOUD_TOKEN}
+      - GOTENBERG_URL=http://gotenberg:3000
+      - MAX_FILE_SIZE_MB=2048
+      - DATA_DIR=/data/zero
+      - DOCKER_HOST=tcp://172.20.0.5:2375
+      - SANDBOX_IMAGE=${SANDBOX_IMAGE:-zero-python-sandbox:1.0}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
+      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY:-}
+      - ZERO_CLOUD_PUBLIC_BASE=https://203.0.113.10:8443
+      - FILE_TTL_HOURS=24
+    networks:
+      - default
+      - sandbox-net
+    volumes:
+      - /data/zero:/data/zero
+      # D102/D105：不挂 docker.sock——C2.2 经 docker-socket-proxy 访问
+    depends_on:
+      - redis
+    profiles: ["full"]
+    restart: unless-stopped
+
+  # ═══ Celery Worker · media 专队（S6.1/D119：媒体任务并发=1——隔离通道稳定性；ffmpeg 直跑不进 sandbox）═══
+  worker-media:
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    container_name: zero-worker-media
+    command: celery -A celery_app worker --loglevel=info --concurrency=1 -Q media --hostname=media@%h
+    mem_limit: 1g   # 转码中转内存（输入≤512MB 配额下的峰值余量）
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - MAX_FILE_SIZE_MB=2048
+      - DATA_DIR=/data/zero
+      - MEDIA_INPUT_QUOTA_MB=512
+      - ZERO_CLOUD_PUBLIC_BASE=https://203.0.113.10:8443
+      - FILE_TTL_HOURS=24
+    volumes:
+      - /data/zero:/data/zero
+    depends_on:
+      - redis
+    profiles: ["full"]
+    restart: unless-stopped
+
+  # ═══ docker-socket-proxy（D102 端点白名单——nginx 自建版，仅放行 /_ping 与 /containers*；仅 sandbox-net 可达）═══
+  socket-proxy:
+    build: ./socket-proxy
+    container_name: zero-socket-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      sandbox-net:
+        ipv4_address: 172.20.0.5   # E12：多网络容器跨网 DNS 不可靠——静态 IP 直连
+    profiles: ["full"]
+    restart: unless-stopped
+
+  # ═══ Sandbox 镜像（D105：仅构建非常驻；Worker 经 socket-proxy 创建临时容器）═══
+  sandbox:
+    build: ./sandbox
+    image: zero-python-sandbox:1.0
+    profiles: ["sandbox"]
+    restart: "no"
+
+  # ═══ wechat-tail — WeClawBot 日志流跟读 sidecar（D114 事件源①：Message from 行 → Redis pub/sub）═══
+  wechat-tail:
+    build: ./wechat-tail
+    container_name: zero-wechat-tail
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DOCKER_PROXY=tcp://172.20.0.5:2375   # E12：跨网 DNS 不可靠——socket-proxy 静态 IP
+      - WECLAWBOT_CONTAINER=zero-weclawbot
+    networks:
+      - default
+      - sandbox-net
+    mem_limit: 100m
+    profiles: ["full"]
+    restart: unless-stopped
+
+  # ═══ WeClawBot (微信通知推送) — full profile（C4.1' 缩围：仅发送；登录=容器终端扫码一次性）═══
+  weclawbot:
+    build: ./weclawbot          # E14：DaoCloud 黑名单 → 官方 release 二进制 + alpine 自包装
+    container_name: zero-weclawbot
+    expose:
+      - "26322"                 # 仅内网（gateway 经 compose 网访问；不映射宿主）
+    volumes:
+      - ./weclawbot/config:/app/config   # auth.json 持久化（扫码后生成）
+    mem_limit: 100m
+    profiles: ["full"]
+    restart: unless-stopped
+
+  # ═══ openclaw (IM 统一网关 · E1.1 设计 §2.1 · im profile 先立后破) ═══
+  # 版本锁定见 openclaw/entrypoint.sh 头注（openclaw@2026.9.5 + 三插件，G11）
+  # 扫码会话卷：/data/zero/openclaw（HOME 持久化——凭据/会话/引述缓存）
+  # 网络随 compose 默认网（gateway E1.2 经主机名 openclaw 访问）；不映射宿主端口
+  openclaw:
+    image: node:24-bookworm-slim
+    container_name: zero-openclaw
+    command: ["bash", "/opt/openclaw/entrypoint.sh"]
+    environment:
+      - NPM_CONFIG_REGISTRY=${NPM_REGISTRY:-https://registry.npmjs.org}
+      - OPENCLAW_GATEWAY_TOKEN=${OPENCLAW_GATEWAY_TOKEN}   # 网关控制面认证（gateway 拒无认证绑定，实测）
+      - ZERO_CLOUD_TOKEN=${ZERO_CLOUD_TOKEN}               # shim → gateway /im/events 认证（E1.2）
+      - TZ=Asia/Shanghai
+    volumes:
+      - /data/zero/openclaw:/data/zero/openclaw
+      - ./openclaw/entrypoint.sh:/opt/openclaw/entrypoint.sh:ro
+      - ./openclaw/shim.js:/opt/openclaw/shim.js:ro
+      - ./openclaw/mute-model.js:/opt/openclaw/mute-model.js:ro   # E1.2：本地哑模型（localService 按需拉起）
+    expose:
+      - "19980"   # oc-shim 集成面（仅内网；gateway 经 openclaw:19980 访问）
+    mem_limit: 1600m   # 43 插件稳态+CLI 媒体发送进程共抢（1200m 实测顶死致媒体发送 OOM 静默失败——2026-09-20）
+    profiles: ["im"]
+    restart: unless-stopped
+
+  # ═══ napcat (QQ 协议端 · 已弃用 · 定义留存 git 供历史可考) ═══
+  # 2026-09-20 用户裁定：QQ 走手机本地动态模块（D6/D11-R，已绿）；云服仅保留微信。
+  # 服务器侧已清：容器移除、镜像删除、插件禁用（wecom/onebot/qqbot）。恢复属方案变更经裁定。
+  napcat:
+    image: mlikiowa/napcat-docker:latest
+    container_name: zero-napcat
+    environment:
+      - ACCOUNT=${NAPCAT_QQ:-}          # 机器人 QQ 号（登录用）
+      - WEBUI_TOKEN=${NAPCAT_WEBUI_TOKEN:?Run scripts/prepare_env.py first}   # Retired profile still requires a private key
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./napcat/config:/app/napcat/config   # QQ 登录态/OneBot 配置持久化
+    expose:
+      - "3000"    # OneBot HTTP API（openclaw-napcat 插件发送用）
+      - "6099"    # WebUI（管理/扫码；仅内网，验收期临时放行由用户裁定）
+    mem_limit: 600m
+    profiles: ["qq-cloud-retired"]
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+
+networks:
+  sandbox-net:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24   # 专用小网段；socket-proxy 固定 172.20.0.5

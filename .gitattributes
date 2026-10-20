@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.jar binary
+# 模型资产按原始字节存储，禁止行尾转换（tokens.txt 等文本模型文件 CRLF 会损坏词表）
+services/src/main/assets/** -text
+services/libs/** -text

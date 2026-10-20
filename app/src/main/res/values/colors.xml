@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- U1（视觉规范）：Zero 深空底——对齐设计素材 zero-icon.svg 背景填充 #111214
+         （adaptive 图标背景 + splash 底色；原 S8.2 #0B1020 对齐设计源） -->
+    <color name="zero_deep_space">#FF111214</color>
+    <!-- Zero 品牌强调色（U1——对齐 tokens.json light.accent；当前无运行时引用，留作 XML 资源备用） -->
+    <color name="zero_accent">#FF147A58</color>
+</resources>

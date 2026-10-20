@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" role="img" aria-label="Zero 正在处理">
+  <style>@keyframes orbit{to{transform:rotate(360deg)}}.orbit{transform-origin:54px 54px;animation:orbit 1800ms linear infinite}@media(prefers-reduced-motion:reduce){.orbit{animation:none}}</style>
+  <g class="orbit" fill="none" stroke="#727879" stroke-width="6" stroke-linecap="round"><path d="M54 28 A26 26 0 1 1 31.5 41"/></g>
+  <circle cx="54" cy="54" r="5" fill="#147A58"/>
+</svg>

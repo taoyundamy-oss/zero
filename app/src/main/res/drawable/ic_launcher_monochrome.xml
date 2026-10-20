@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  U1（视觉规范）：Zero 单色版（Android 13+ 主题图标层）——同前景几何，纯白
+  （主题图标取 alpha 通道着色）；渐变不可用于 monochrome，故实色 #FFFFFFFF。
+  几何与 ic_launcher_foreground 一致（环 + 右上方块）。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <path
+        android:pathData="M63.3,34.1 A22,22 0,1 0,73.1 43"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="8"
+        android:strokeLineCap="round" />
+
+    <path
+        android:pathData="M69.5,31 L74.5,31 Q76,31 76,32.5 L76,37.5 Q76,39 74.5,39 L69.5,39 Q68,39 68,37.5 L68,32.5 Q68,31 69.5,31 Z"
+        android:fillColor="#FFFFFFFF" />
+</vector>

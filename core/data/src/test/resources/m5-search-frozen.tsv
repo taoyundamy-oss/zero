@@ -1,0 +1,13 @@
+source	展柜 海蓝	展柜的备用标牌改用海蓝底色。	true
+source	海蓝 展柜	展柜的备用标牌改用海蓝底色。	true
+source	展柜 紫色	展柜的备用标牌改用海蓝底色。	false
+source	NOTE archive	Archive note is on shelf seven.	true
+source	箱架 ' OR 1=1 --	箱架还未安装。	false
+source	2026-09-12 装配	2026-09-12完成风铃装配。	true
+source	  清点，砂轮；砂轮  	清点结束，砂轮仍在箱内。	true
+conflict	灯架 材质 旧记录	灯架/材质	true
+conflict	灯架是什么材质	灯架/材质	true
+conflict	花盆 材质	灯架/材质	false
+conflict	材质	灯架/材质	false
+conflict	归还 截止日期	归还截止日期	true
+conflict	租赁 截止日期	归还截止日期	false
