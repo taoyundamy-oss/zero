@@ -7,7 +7,7 @@ Android原生个人Agent，支持多模型对话、工具调用、持久记忆�
 <!-- ZERO_FACTS_BEGIN -->
 ### 当前构建事实（自动生成）
 
-- 应用版本：`1.0.0`（versionCode `2`）
+- 应用版本：`1.0.0-preview.1`（versionCode `3`）
 - Room 数据库版本：`38`
 - Room 最新导出 schema：`38`
 
@@ -23,6 +23,10 @@ Android原生个人Agent，支持多模型对话、工具调用、持久记忆�
 - 成本与用量本地观测、角色与自主行为设置、可选本地语音和向量模型。
 
 具体实现和未完成项见[当前设计](PROJECT_DESIGN_CURRENT.md)、[架构](ARCHITECTURE_FINAL.md)、[路线图](ROADMAP.md)。历史文档中的本机证据路径只记录验收出处，原始运行资料不会随仓库公开。
+
+## 下载预览版
+
+公开预览APK见[GitHub Releases](https://github.com/taoyundamy-oss/zero/releases)。使用独立发布签名；已有开发签名安装不能直接覆盖，请保留原应用和数据。需自行配置模型/服务。此APK不含模型权重，本地ASR、唤醒和Melo TTS不可用；相关语音资产当前需按源码说明自行打包，不提供一键安装。向量能力需配置可用后端。公开release关闭系统自动备份/设备迁移，应用内主动备份保留；模型服务接收你选择发送的数据。
 
 ## 构建
 
@@ -64,7 +68,7 @@ zero-cloud为可选服务，按其Docker配置部署。在zero-cloud目录运行
 python scripts/check_public_tree.py
 ```
 
-通过Pull Request和GitHub Actions质量检查合并，详见[CONTRIBUTING.md](CONTRIBUTING.md)。安全问题见[SECURITY.md](SECURITY.md)。初始开源仅发布源码，不自动发布APK，不安装设备，也不运行真实模型测试。
+通过Pull Request和GitHub Actions质量检查合并，详见[CONTRIBUTING.md](CONTRIBUTING.md)。安全问题见[SECURITY.md](SECURITY.md)。APK经独立签名与包级隐私检查后发布到Releases；CI只构建和检查unsigned release，不持有私钥、不安装设备、不运行真实模型测试。
 
 ## 许可证
 

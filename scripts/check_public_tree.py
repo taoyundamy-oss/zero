@@ -41,7 +41,7 @@ def scan_entries(entries, label):
             errors.append((name, "private-or-generated-directory"))
         if path.name.startswith(".env") and path.name != ".env.example":
             errors.append((name, "environment-file"))
-        if path.suffix.lower() in {".db", ".sqlite", ".sqlite3", ".keystore", ".jks", ".p12", ".pfx", ".pem", ".key", ".apk", ".aab", ".onnx", ".so", ".gguf", ".safetensors", ".pt"} or path.name.endswith((".db-wal", ".db-shm")):
+        if path.suffix.lower() in {".db", ".sqlite", ".sqlite3", ".keystore", ".jks", ".p12", ".pfx", ".pem", ".key", ".dpapi", ".apk", ".aab", ".onnx", ".so", ".gguf", ".safetensors", ".pt"} or path.name.endswith((".db-wal", ".db-shm")):
             errors.append((name, "private-or-unreviewed-binary"))
         if path.suffix.lower() == ".jar" and name != "gradle/wrapper/gradle-wrapper.jar":
             errors.append((name, "unreviewed-runtime-jar"))

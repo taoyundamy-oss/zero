@@ -34,4 +34,6 @@ jobs:
       - name: Obtain hash-pinned runtime dependencies
         run: python scripts/bootstrap_runtime.py
       - name: Test, lint and compile
-        run: ./gradlew qualityCheck assembleDebug --no-daemon --no-parallel --max-workers=2 --console=plain
+        run: ./gradlew qualityCheck assembleDebug :app:assembleRelease --no-daemon --no-parallel --max-workers=2 --console=plain
+      - name: Inspect release APK privacy
+        run: python scripts/check_release_apk.py app/build/outputs/apk/release/app-release-unsigned.apk --aapt "$ANDROID_HOME/build-tools/34.0.0/aapt"

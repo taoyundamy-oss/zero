@@ -27,6 +27,7 @@ __pycache__/
 *.jks
 *.keystore
 *.p12
+*.dpapi
 # Verified runtime dependencies are downloaded, not committed
 services/libs/
 services/src/main/jniLibs/

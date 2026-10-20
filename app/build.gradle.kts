@@ -12,7 +12,8 @@ android {
     compileSdk = 35
     // S8.1（SR10/C6/F3）：版本归零——versionName 1.0.0；versionCode 1→2 保持单调（降版升级安装不被拒）
     defaultConfig {
-        applicationId = "com.zero.v2"; minSdk = 26; targetSdk = 35; versionCode = 2; versionName = "1.0.0"
+        applicationId = "com.zero.v2"; minSdk = 26; targetSdk = 35; versionCode = 3; versionName = "1.0.0-preview.1"
+        ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
         testInstrumentationRunner = "com.zero.v2.app.acceptance.ProviderAcceptanceRunner"
     }
     buildTypes {
@@ -31,6 +32,9 @@ android {
     // P2-2：最终 APK 是 Sherpa 原生库的唯一打包边界；资产仍保留在 services
     // 的既有目录，避免迁移大文件，同时不再放大 services 的 lint AAR。
     sourceSets["main"].jniLibs.srcDir("../services/src/main/jniLibs")
+    androidResources {
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:CVS:thumbs.db:picasa.ini:*~:__pycache__:*.pyc:*.pyo"
+    }
     if (testBuildType == "benchmark") {
         // Offline resource fixtures compile the debug-only acceptance helpers into the
         // controller, not the production APK. Provider-backed fixtures remain debug-only.

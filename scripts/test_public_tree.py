@@ -55,7 +55,7 @@ class PublicTreeTest(unittest.TestCase):
             self.assertEqual(0, self.check(root))
 
     def test_private_key_database_sidecar_and_runtime_binaries_are_rejected(self):
-        for name in ["capture.db-wal", "capture.db-shm", "credential.pem", "model.gguf", "weights.safetensors", "services/libs/runtime.jar"]:
+        for name in ["capture.db-wal", "capture.db-shm", "credential.pem", "store-password.dpapi", "model.gguf", "weights.safetensors", "services/libs/runtime.jar"]:
             with self.subTest(name=name), tempfile.TemporaryDirectory() as temp:
                 root = Path(temp)
                 self.stage(root, name, b"synthetic")

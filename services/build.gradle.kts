@@ -25,6 +25,7 @@ android {
     // v6.3-v4: 模型文件不压缩（ONNX mmap 需要 + 避免解压 446MB 内存峰值）
     androidResources {
         noCompress += listOf("onnx", "bin", "fst", "txt", "dict")
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:CVS:thumbs.db:picasa.ini:*~:__pycache__:*.pyc:*.pyo"
     }
 
     // M1.1（模块化轨）：Shizuku UserService AIDL——AGP 8.x 默认关闭，须显式开启

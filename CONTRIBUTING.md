@@ -14,3 +14,5 @@ python scripts/bootstrap_runtime.py，再执行Gradle的qualityCheck assembleDeb
 新克隆后执行 git config core.hooksPath .githooks 可启用本地提交/推送检查。检查读取暂存区实际内容；仍需人工审查和CI。
 
 推送前再执行 python scripts/check_public_tree.py --history HEAD，要求完整历史（浅克隆需先补齐）。CI拉取完整历史并检查每个可达提交，旧提交删除过的内容仍会检查。不要通过仅修改工作区或删除当前文件绕过历史脱敏。
+
+公开APK须使用release变体并通过scripts/check_release_apk.py，不得发布debug/test APK。私钥及密码不得放入源码、CI日志或Release；发布证书需要长期保留。发布前验证APK签名和SHA-256，并明确可选模型与设备验收边界。
